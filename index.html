@@ -1,1093 +1,570 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>강원대학교 대기환경연구실 | Atmospheric Environment Research Lab</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --knu-primary: #003366;
-  --knu-primary-dark: #002244;
-  --knu-accent: #1a6fb5;
-  --knu-accent-light: #2d8fd4;
-  --knu-gold: #c5981b;
-  --knu-gold-light: #e8c55a;
-  --bg-white: #ffffff;
-  --bg-light: #f5f7fa;
-  --bg-section: #eef2f7;
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a5568;
-  --text-light: #718096;
-  --border: #d8dee6;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-break:keep-all;overflow-wrap:break-word;background:#fff;font-size:15px;}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── Top utility bar (like JBNU blue strip) ── */
+.util-bar{background:#4a8ec9;padding:5px 0;font-size:0.78rem;}
+.util-bar .wrap{max-width:1260px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;}
+.util-bar .univ-link{color:#fff;text-decoration:none;font-weight:700;font-size:0.8rem;display:flex;align-items:center;gap:6px;}
+.util-bar .univ-link:hover{text-decoration:underline;}
+.util-bar .right-links{display:flex;gap:14px;}
+.util-bar .right-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;}
+.util-bar .right-links a:hover{color:#fff;}
 
-html { scroll-behavior: smooth; }
+/* ── Header: single row with logo + lab name + nav ── */
+.site-header{background:#fff;border-bottom:1px solid #ddd;padding:0;}
+.site-header .wrap{max-width:1260px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:90px;}
+.header-left{display:flex;align-items:center;gap:18px;text-decoration:none;cursor:pointer;}
+.header-left img{height:52px;width:auto;}
+.header-text{display:flex;flex-direction:column;line-height:1.25;}
+.header-text .en-name{font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:1.25rem;color:#2a7abf;letter-spacing:0.01em;}
+.header-text .ko-name{font-family:'Nanum Gothic',sans-serif;font-weight:800;font-size:1.15rem;color:#333;margin-top:2px;}
+.main-nav{display:flex;gap:0;align-items:center;}
+.nav-item{position:relative;}
+.nav-item>a{display:flex;align-items:center;height:90px;padding:0 26px;color:#333;font-size:0.95rem;font-weight:700;text-decoration:none;transition:color .2s;}
+.nav-item>a:hover,.nav-item>a.active{color:#2a7abf;}
+.nav-item .sub-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:220px;box-shadow:0 4px 16px rgba(0,0,0,0.12);border-top:3px solid #2a7abf;z-index:200;}
+.nav-item:hover .sub-menu{display:block;}
+.sub-menu a{display:block;padding:12px 22px;font-size:0.9rem;color:#444;text-decoration:none;border-bottom:1px solid #f0f0f0;transition:all .15s;}
+.sub-menu a:hover{background:#f0f6fc;color:#2a7abf;padding-left:26px;}
 
-body {
-  font-family: 'Nanum Gothic', sans-serif;
-  color: var(--text-primary);
-  line-height: 1.7;
-  background: var(--bg-white);
-  -webkit-font-smoothing: antialiased;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-}
+.mobile-toggle{display:none;background:none;border:none;font-size:1.6rem;color:#333;cursor:pointer;}
 
-/* ── Top Bar ── */
-.top-bar {
-  background: var(--knu-primary-dark);
-  color: rgba(255,255,255,0.7);
-  font-size: 0.78rem;
-  padding: 6px 0;
-  letter-spacing: 0.01em;
-}
-.top-bar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.top-bar a {
-  color: rgba(255,255,255,0.7);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.top-bar a:hover { color: #fff; }
-.top-bar-links { display: flex; gap: 18px; }
+/* ── Home hero with slideshow ── */
+.home-hero{position:relative;min-height:520px;display:flex;align-items:center;overflow:hidden;color:#fff;}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease-in-out;}
+.hero-slide.active{opacity:1;}
+.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,30,60,0.75) 0%,rgba(20,60,100,0.6) 50%,rgba(30,90,150,0.5) 100%);}
+.home-hero .wrap{max-width:1260px;margin:0 auto;padding:60px 28px;position:relative;z-index:2;}
+.home-dept{font-family:'Source Sans 3',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.55);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;}
+.home-hero h1{font-family:'Source Sans 3',sans-serif;font-size:2.8rem;font-weight:700;line-height:1.3;margin-bottom:8px;}
+.home-hero .ko-title{font-size:1.5rem;font-weight:800;color:rgba(255,255,255,0.9);margin-bottom:28px;}
+.home-hero p{font-size:1.1rem;line-height:1.9;color:rgba(255,255,255,0.85);max-width:680px;}
+.home-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border-bottom:1px solid #e0e0e0;}
+.home-box{padding:28px 20px;text-align:center;border-right:1px solid #e8e8e8;cursor:pointer;transition:background .2s;}
+.home-box:last-child{border-right:none;}
+.home-box:hover{background:#f0f5fa;}
+.home-box .box-title{font-size:0.88rem;font-weight:800;color:#003366;text-transform:uppercase;letter-spacing:0.04em;}
 
-/* ── Container ── */
-.container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+/* ── Home panels ── */
+.home-panels{max-width:1260px;margin:0 auto;padding:48px 28px 70px;display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+.home-panel h2{font-size:1.1rem;font-weight:800;color:#003366;padding-bottom:12px;border-bottom:2px solid #003366;margin-bottom:18px;}
+.home-panel ul{list-style:none;}
+.home-panel li{padding:12px 0;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;font-size:0.95rem;}
+.home-panel li a{color:#333;text-decoration:none;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.home-panel li a:hover{color:#2a7abf;}
+.home-panel li .date{color:#aaa;font-size:0.82rem;flex-shrink:0;margin-left:16px;}
+.badge-new{display:inline-block;background:#2a7abf;color:#fff;font-size:0.65rem;padding:2px 7px;border-radius:2px;margin-right:8px;font-weight:700;vertical-align:middle;}
 
-/* ── Header / Nav ── */
-.site-header {
-  background: var(--bg-white);
-  border-bottom: 3px solid var(--knu-primary);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 82px;
-}
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  text-decoration: none;
-  color: var(--knu-primary);
-}
-.logo-area img {
-  height: 64px;
-  width: auto;
-}
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.3;
-}
-.logo-text .lab-name {
-  font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 800;
-  font-size: 1.4rem;
-  color: var(--knu-primary);
-  letter-spacing: -0.01em;
-}
-.logo-text .lab-name-en {
-  font-family: 'Source Sans 3', sans-serif;
-  font-weight: 500;
-  font-size: 0.73rem;
-  color: var(--text-light);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-top: 2px;
-}
+/* ── Page banner ── */
+.page-banner{background:linear-gradient(135deg,#002244 0%,#003366 50%,#1a6fb5 100%);padding:52px 0;color:#fff;position:relative;overflow:hidden;}
+.page-banner::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M20 20h20v20H20z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+.page-banner .wrap{max-width:1260px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+.page-banner h1{font-size:2rem;font-weight:800;margin-bottom:4px;}
+.page-banner .en-title{font-family:'Source Sans 3',sans-serif;font-size:1.05rem;font-weight:400;color:rgba(255,255,255,0.7);}
 
-.main-nav { display: flex; gap: 0; }
-.main-nav a {
-  display: flex;
-  align-items: center;
-  height: 82px;
-  padding: 0 22px;
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  text-decoration: none;
-  position: relative;
-  transition: color 0.2s;
-}
-.main-nav a:hover { color: var(--knu-accent); }
-.main-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background: var(--knu-gold);
-  transition: width 0.3s ease;
-}
-.main-nav a:hover::after { width: 100%; }
+/* ── Breadcrumb ── */
+.breadcrumb{background:#f8f9fa;border-bottom:1px solid #e8e8e8;padding:11px 0;font-size:0.82rem;color:#888;}
+.breadcrumb .wrap{max-width:1260px;margin:0 auto;padding:0 28px;}
+.breadcrumb span{margin:0 6px;color:#ccc;}
 
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--knu-primary);
-  cursor: pointer;
-}
+/* ── Content layout ── */
+.content-area{max-width:1260px;margin:0 auto;padding:44px 28px 90px;display:flex;gap:40px;min-height:60vh;}
+.sidebar{width:230px;flex-shrink:0;}
+.sidebar h3{font-size:1rem;font-weight:800;color:#003366;padding:15px 18px;background:#f0f5fa;border-left:4px solid #003366;margin-bottom:0;}
+.sidebar ul{list-style:none;}
+.sidebar li a{display:block;padding:13px 18px;font-size:0.92rem;color:#555;text-decoration:none;border-bottom:1px solid #f0f0f0;transition:all .15s;}
+.sidebar li a:hover,.sidebar li a.active{color:#003366;background:#f8fafc;font-weight:700;border-left:3px solid #2a7abf;padding-left:15px;}
+.main-content{flex:1;min-width:0;}
 
-/* ── Hero Banner ── */
-.hero {
-  position: relative;
-  background: linear-gradient(135deg, var(--knu-primary-dark) 0%, var(--knu-primary) 40%, var(--knu-accent) 100%);
-  color: #fff;
-  overflow: hidden;
-  min-height: 440px;
-  display: flex;
-  align-items: center;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 80%, rgba(197,152,27,0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(26,111,181,0.2) 0%, transparent 50%);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  pointer-events: none;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 80px 0;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 20px;
-  padding: 6px 16px;
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 24px;
-  backdrop-filter: blur(4px);
-}
-.hero-badge span {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--knu-gold-light);
-}
-.hero h1 {
-  font-family: 'Nanum Myeongjo', serif;
-  font-size: 2.4rem;
-  font-weight: 800;
-  line-height: 1.4;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.15);
-}
-.hero p {
-  font-size: 1.05rem;
-  line-height: 1.85;
-  color: rgba(255,255,255,0.88);
-  max-width: 660px;
-  margin-bottom: 32px;
-  font-weight: 400;
-}
-.hero-btns {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 12px 28px;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  cursor: pointer;
-  border: none;
-  font-family: 'Nanum Gothic', sans-serif;
-}
-.btn-primary {
-  background: var(--knu-gold);
-  color: #fff;
-}
-.btn-primary:hover {
-  background: var(--knu-gold-light);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(197,152,27,0.3);
-}
-.btn-outline {
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.4);
-}
-.btn-outline:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.7);
-}
+/* ── Professor card ── */
+.prof-card{display:flex;gap:36px;margin-bottom:44px;align-items:flex-start;}
+.prof-photo{width:190px;height:230px;background:#e8eef4;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:4.5rem;flex-shrink:0;border:1px solid #ddd;}
+.prof-info h2{font-size:1.45rem;font-weight:800;color:#003366;margin-bottom:4px;}
+.prof-info .en{font-family:'Source Sans 3',sans-serif;color:#666;font-size:0.95rem;margin-bottom:14px;}
+.prof-table{width:100%;border-collapse:collapse;font-size:0.95rem;}
+.prof-table th{text-align:left;padding:10px 14px;background:#f5f7fa;color:#003366;font-weight:700;width:130px;border-bottom:1px solid #e8e8e8;white-space:nowrap;}
+.prof-table td{padding:10px 14px;border-bottom:1px solid #e8e8e8;color:#444;}
 
-/* ── Quick Info Strip ── */
-.quick-strip {
-  background: var(--bg-white);
-  border-bottom: 1px solid var(--border);
-  padding: 0;
-}
-.quick-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-}
-.quick-card {
-  padding: 32px 28px;
-  border-right: 1px solid var(--border);
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-.quick-card:last-child { border-right: none; }
-.quick-icon {
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
-  background: var(--bg-section);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--knu-accent);
-}
-.quick-card h3 {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--knu-primary);
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.quick-card p {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
+/* ── Research content ── */
+.research-section{margin-bottom:44px;}
+.research-section h2{font-size:1.2rem;font-weight:800;color:#003366;padding-bottom:10px;border-bottom:2px solid #003366;margin-bottom:18px;}
+.research-section p{font-size:0.98rem;color:#444;line-height:1.85;margin-bottom:14px;}
+.keyword-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.keyword-list span{font-size:0.82rem;padding:5px 14px;background:#f0f5fa;color:#003366;border-radius:14px;border:1px solid #d8e4ef;}
 
-/* ── Section Shared ── */
-.section {
-  padding: 80px 0;
-}
-.section-alt {
-  background: var(--bg-light);
-}
-.section-header {
-  margin-bottom: 48px;
-}
-.section-tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--knu-accent);
-  margin-bottom: 10px;
-}
-.section-title {
-  font-family: 'Nanum Myeongjo', serif;
-  font-size: 1.85rem;
-  font-weight: 800;
-  color: var(--knu-primary);
-  margin-bottom: 12px;
-  line-height: 1.35;
-}
-.section-desc {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  max-width: 680px;
-  line-height: 1.75;
-}
-.section-divider {
-  width: 40px;
-  height: 3px;
-  background: var(--knu-gold);
-  margin: 16px 0 0 0;
-  border-radius: 2px;
-}
-
-/* ── Research Cards ── */
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.research-card {
-  background: var(--bg-white);
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
-  transition: all 0.3s ease;
-}
-.research-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-.research-card-accent {
-  height: 4px;
-}
-.rc-blue { background: var(--knu-accent); }
-.rc-gold { background: var(--knu-gold); }
-.rc-navy { background: var(--knu-primary); }
-.research-card-body {
-  padding: 28px 24px;
-}
-.research-card-body .rc-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--knu-accent);
-  margin-bottom: 10px;
-}
-.research-card-body h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--knu-primary);
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
-.research-card-body p {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-.research-keywords {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 16px;
-}
-.keyword-tag {
-  font-size: 0.72rem;
-  padding: 3px 10px;
-  background: var(--bg-section);
-  color: var(--text-light);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-}
+/* ── Publication list ── */
+.pub-year{font-size:1.15rem;font-weight:800;color:#003366;margin:32px 0 14px;padding-bottom:6px;border-bottom:2px solid #e8e8e8;}
+.pub-year:first-child{margin-top:0;}
+.pub-entry{font-size:0.92rem;color:#444;line-height:1.75;margin-bottom:12px;padding-left:18px;border-left:3px solid #e8e8e8;}
+.pub-entry:hover{border-left-color:#2a7abf;}
+.pub-entry strong{color:#003366;}
 
 /* ── Members ── */
-.members-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-.member-card {
-  background: var(--bg-white);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 32px 28px;
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-  box-shadow: var(--shadow-sm);
-}
-.member-card.pi-card {
-  grid-column: 1 / -1;
-  background: linear-gradient(135deg, var(--knu-primary) 0%, var(--knu-accent) 100%);
-  color: #fff;
-  border: none;
-}
-.member-avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: var(--bg-section);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 1.6rem;
-  color: var(--knu-accent);
-}
-.pi-card .member-avatar {
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-}
-.member-info { flex: 1; }
-.member-role {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--knu-accent);
-  margin-bottom: 4px;
-}
-.pi-card .member-role { color: var(--knu-gold-light); }
-.member-info h3 {
-  font-size: 1.15rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-.member-info p {
-  font-size: 0.88rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-}
-.pi-card .member-info p {
-  color: rgba(255,255,255,0.85);
-}
-.member-detail {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 10px;
-  font-size: 0.82rem;
-}
-.member-detail span {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--text-light);
-}
-.pi-card .member-detail span {
-  color: rgba(255,255,255,0.7);
-}
-
-/* ── Publications ── */
-.pub-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.pub-item {
-  background: var(--bg-white);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 24px 28px;
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  box-shadow: var(--shadow-sm);
-  transition: border-color 0.2s;
-}
-.pub-item:hover {
-  border-color: var(--knu-accent-light);
-}
-.pub-num {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--knu-primary);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 0.85rem;
-}
-.pub-content h4 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-  line-height: 1.5;
-}
-.pub-content .pub-meta {
-  font-size: 0.82rem;
-  color: var(--text-light);
-  line-height: 1.6;
-}
-.pub-content .pub-journal {
-  color: var(--knu-accent);
-  font-weight: 700;
-}
-
-/* ── Notice ── */
-.notice-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.notice-item {
-  background: var(--bg-white);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 24px;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.25s;
-}
-.notice-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-.notice-badge {
-  display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 3px 10px;
-  border-radius: 3px;
-  background: var(--knu-primary);
-  color: #fff;
-  margin-bottom: 12px;
-}
-.notice-badge.new { background: var(--knu-accent); }
-.notice-item h4 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-  line-height: 1.45;
-}
-.notice-item p {
-  font-size: 0.82rem;
-  color: var(--text-light);
-  line-height: 1.6;
-}
+.member-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;}
+.member-item{background:#f8fafc;border:1px solid #e8e8e8;border-radius:6px;padding:22px;text-align:center;}
+.member-item .avatar{width:68px;height:68px;border-radius:50%;background:#e0e8f0;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+.member-item h4{font-size:0.98rem;font-weight:700;color:#003366;}
+.member-item p{font-size:0.85rem;color:#888;margin-top:4px;}
 
 /* ── Contact ── */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-.contact-info-card {
-  background: var(--bg-white);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 36px 32px;
-  box-shadow: var(--shadow-sm);
-}
-.contact-row {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--bg-section);
-}
-.contact-row:first-child { padding-top: 0; }
-.contact-row:last-child { border-bottom: none; padding-bottom: 0; }
-.contact-label {
-  flex-shrink: 0;
-  width: 100px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--knu-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.contact-value {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-.contact-value a {
-  color: var(--knu-accent);
-  text-decoration: none;
-}
-.contact-value a:hover { text-decoration: underline; }
-
-.contact-cta {
-  background: linear-gradient(135deg, var(--knu-primary) 0%, var(--knu-accent) 100%);
-  border-radius: 6px;
-  padding: 36px 32px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.contact-cta h3 {
-  font-family: 'Nanum Myeongjo', serif;
-  font-size: 1.35rem;
-  font-weight: 800;
-  margin-bottom: 16px;
-  line-height: 1.4;
-}
-.contact-cta p {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.75;
-  margin-bottom: 24px;
-}
-.contact-cta .btn-primary {
-  align-self: flex-start;
-}
+.contact-info{font-size:0.98rem;line-height:2.2;}
+.contact-info dt{font-weight:700;color:#003366;float:left;width:110px;clear:left;}
+.contact-info dd{margin-left:120px;color:#555;}
 
 /* ── Footer ── */
-.site-footer {
-  background: var(--knu-primary-dark);
-  color: rgba(255,255,255,0.6);
-  padding: 40px 0 28px;
-  font-size: 0.82rem;
-  line-height: 1.7;
-}
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-}
-.footer-info .footer-name {
-  font-weight: 700;
-  color: rgba(255,255,255,0.85);
-  font-size: 0.92rem;
-  margin-bottom: 8px;
-}
-.footer-links {
-  display: flex;
-  gap: 20px;
-}
-.footer-links a {
-  color: rgba(255,255,255,0.5);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: #fff; }
-.footer-bottom {
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  text-align: center;
-  font-size: 0.76rem;
-  color: rgba(255,255,255,0.35);
-}
+.site-footer{background:#2c3e50;color:rgba(255,255,255,0.5);padding:36px 0;font-size:0.82rem;line-height:1.7;}
+.site-footer .wrap{max-width:1260px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;}
+.footer-links{display:flex;gap:18px;}
+.footer-links a{color:rgba(255,255,255,0.4);text-decoration:none;}
+.footer-links a:hover{color:#fff;}
+.footer-copy{text-align:center;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.3);}
+
+/* ── Page sections ── */
+.page-section{display:none;}
+.page-section.active{display:block;}
 
 /* ── Responsive ── */
-@media (max-width: 900px) {
-  .main-nav { display: none; }
-  .mobile-toggle { display: block; }
-  .hero h1 { font-size: 1.8rem; }
-  .quick-cards { grid-template-columns: 1fr; }
-  .quick-card { border-right: none; border-bottom: 1px solid var(--border); }
-  .quick-card:last-child { border-bottom: none; }
-  .research-grid { grid-template-columns: 1fr; }
-  .members-grid { grid-template-columns: 1fr; }
-  .notice-list { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; }
+@media(max-width:1000px){
+  .site-header .wrap{flex-wrap:wrap;height:auto;padding:12px 20px;}
+  .main-nav{display:none;width:100%;flex-direction:column;}
+  .main-nav.open{display:flex;}
+  .nav-item>a{height:auto;padding:12px 0;}
+  .nav-item .sub-menu{position:static;box-shadow:none;border-top:none;}
+  .mobile-toggle{display:block;}
+  .content-area{flex-direction:column;}
+  .sidebar{width:100%;}
+  .prof-card{flex-direction:column;align-items:center;text-align:center;}
+  .home-panels{grid-template-columns:1fr;}
+  .home-boxes{grid-template-columns:repeat(2,1fr);}
+  .site-footer .wrap{flex-direction:column;}
 }
-
-@media (max-width: 600px) {
-  .hero { min-height: 360px; }
-  .hero h1 { font-size: 1.5rem; }
-  .hero-content { padding: 48px 0; }
-  .section { padding: 56px 0; }
-  .section-title { font-size: 1.5rem; }
-  .member-card { flex-direction: column; text-align: center; align-items: center; }
-  .pub-item { flex-direction: column; }
-  .logo-area img { height: 44px; }
-  .logo-text .lab-name { font-size: 1.1rem; }
+@media(max-width:600px){
+  .home-hero h1{font-size:1.9rem;}
+  .home-hero{min-height:400px;}
+  .home-boxes{grid-template-columns:1fr;}
+  .header-left img{height:40px;}
 }
-
-/* ── Animations ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.hero-badge { animation: fadeUp 0.6s ease forwards; }
-.hero h1 { animation: fadeUp 0.6s 0.1s ease both; }
-.hero p { animation: fadeUp 0.6s 0.2s ease both; }
-.hero-btns { animation: fadeUp 0.6s 0.3s ease both; }
 </style>
 </head>
 <body>
 
-<!-- Top Bar -->
-<div class="top-bar">
-  <div class="container">
-    <span>강원대학교 환경공학전공</span>
-    <div class="top-bar-links">
-      <a href="https://environ.kangwon.ac.kr/environ/index.do" target="_blank">학과 홈페이지</a>
-      <a href="https://www.kangwon.ac.kr" target="_blank">강원대학교</a>
+<!-- Top utility bar -->
+<div class="util-bar"><div class="wrap">
+  <a class="univ-link" href="https://www.kangwon.ac.kr" target="_blank">🏛 강원대학교</a>
+  <div class="right-links">
+    <a href="https://environ.kangwon.ac.kr/environ/index.do" target="_blank">환경공학전공</a>
+  </div>
+</div></div>
+
+<!-- Header: single row -->
+<header class="site-header"><div class="wrap">
+  <div class="header-left" onclick="showPage('home')">
+    <img src="https://knu-airlab.github.io/knu_logo.png" alt="KNU 강원대학교"/>
+    <div class="header-text">
+      <div class="en-name">Atmospheric Environment Research Lab</div>
+      <div class="ko-name">대기환경연구실</div>
+    </div>
+  </div>
+  <button class="mobile-toggle" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
+  <nav class="main-nav">
+    <div class="nav-item">
+      <a href="#" onclick="showPage('research-observation');return false;" id="nav-research">Research</a>
+      <div class="sub-menu">
+        <a href="#" onclick="showPage('research-observation');return false;">Observation &amp; Analysis</a>
+        <a href="#" onclick="showPage('research-source');return false;">Source &amp; Process</a>
+        <a href="#" onclick="showPage('research-impact');return false;">Air Quality &amp; Health</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="#" onclick="showPage('member-prof');return false;" id="nav-member">Group Member</a>
+      <div class="sub-menu">
+        <a href="#" onclick="showPage('member-prof');return false;">Professor</a>
+        <a href="#" onclick="showPage('member-students');return false;">Members</a>
+        <a href="#" onclick="showPage('member-positions');return false;">Positions Available</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="#" onclick="showPage('publication');return false;" id="nav-pub">Publication</a>
+      <div class="sub-menu">
+        <a href="#" onclick="showPage('publication');return false;">Publication</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="#" onclick="showPage('notice');return false;" id="nav-board">Board</a>
+      <div class="sub-menu">
+        <a href="#" onclick="showPage('notice');return false;">Notice</a>
+        <a href="#" onclick="showPage('activities');return false;">Activities</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="#" onclick="showPage('contact');return false;" id="nav-contact">Contact</a>
+    </div>
+  </nav>
+</div></header>
+
+<!-- ====== HOME ====== -->
+<div class="page-section active" id="page-home">
+  <div class="home-hero">
+    <!-- Slideshow backgrounds (placeholder images — replace with your own) -->
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1400&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=1400&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1581093458791-9d42cc050e4b?w=1400&q=80')"></div>
+    <div class="wrap">
+      <div class="home-dept">Department of Environmental Engineering, Kangwon National University</div>
+      <h1>Atmospheric Environment<br/>Research Lab</h1>
+      <div class="ko-title">강원대학교 대기환경연구실</div>
+      <p>대기 중 미세먼지와 유기성분의 화학적 특성을 규명하고 대기오염의 발생 원인과 영향을 연구합니다. 현장 관측과 화학분석, 챔버실험, 수용모델 및 박스모델을 결합하여 대기환경과 기후변화에 관한 과학적 근거를 제시합니다.</p>
+    </div>
+  </div>
+  <div class="home-boxes">
+    <div class="home-box" onclick="showPage('notice')"><div class="box-title">Notice</div></div>
+    <div class="home-box" onclick="showPage('research-observation')"><div class="box-title">Research</div></div>
+    <div class="home-box" onclick="showPage('publication')"><div class="box-title">Publication</div></div>
+    <div class="home-box" onclick="showPage('activities')"><div class="box-title">Activities</div></div>
+  </div>
+  <div class="home-panels">
+    <div class="home-panel">
+      <h2>Notice</h2>
+      <ul>
+        <li><a href="#" onclick="showPage('member-positions');return false;"><span class="badge-new">NEW</span>대학원생 및 학부연구생 모집</a><span class="date">2026.03</span></li>
+        <li><a href="#" onclick="showPage('notice');return false;">연구실 홈페이지 오픈</a><span class="date">2026.03</span></li>
+        <li><a href="#" onclick="showPage('notice');return false;">논문 및 프로젝트 정보 업데이트 예정</a><span class="date">2026.03</span></li>
+      </ul>
+    </div>
+    <div class="home-panel">
+      <h2>Activities</h2>
+      <ul>
+        <li><a href="#"><span class="badge-new">NEW</span>EGU General Assembly 2026 (Vienna) 참가</a><span class="date">2026.05</span></li>
+        <li><a href="#">Atmospheric Environment 논문 게재</a><span class="date">2026.02</span></li>
+        <li><a href="#">한국대기환경학회 정기학술대회 발표</a><span class="date">2025.11</span></li>
+      </ul>
     </div>
   </div>
 </div>
 
-<!-- Header -->
-<header class="site-header">
-  <div class="container">
-    <div class="header-inner">
-      <a href="#home" class="logo-area">
-        <img src="https://knu-airlab.github.io/knu_logo.png" alt="Kangwon National University" />
-        <div class="logo-text">
-          <span class="lab-name">대기환경연구실</span>
-          <span class="lab-name-en">Atmospheric Environment Research Lab</span>
-        </div>
-      </a>
-      <nav class="main-nav">
-        <a href="#home">Home</a>
-        <a href="#research">Research</a>
-        <a href="#members">Members</a>
-        <a href="#publications">Publications</a>
-        <a href="#notice">Notice</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button class="mobile-toggle" onclick="document.querySelector('.main-nav').style.display=document.querySelector('.main-nav').style.display==='flex'?'none':'flex'">☰</button>
-    </div>
+<!-- ====== RESEARCH - Observation ====== -->
+<div class="page-section" id="page-research-observation">
+  <div class="page-banner"><div class="wrap"><h1>연구 분야</h1><div class="en-title">Research</div></div></div>
+  <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Research <span>›</span> <strong>Observation &amp; Analysis</strong></div></div>
+  <div class="content-area">
+    <aside class="sidebar"><h3>Research</h3><ul>
+      <li><a href="#" onclick="showPage('research-observation');return false;" class="active">Observation &amp; Analysis</a></li>
+      <li><a href="#" onclick="showPage('research-source');return false;">Source &amp; Process</a></li>
+      <li><a href="#" onclick="showPage('research-impact');return false;">Air Quality &amp; Health</a></li>
+    </ul></aside>
+    <div class="main-content"><div class="research-section">
+      <h2>대기오염 관측과 성분 분석</h2>
+      <p>미세먼지 중 유기성분과 무기성분의 농도 수준, 화학 조성, 시공간 분포를 분석합니다. 가스크로마토그래피-질량분석법 등 다양한 기기분석 기법을 활용하여 입자상 및 기체상 대기오염물질을 정량하고, 도시 지역과 배경 지역에서의 계절별 변동 특성을 비교합니다.</p>
+      <p>대기 중 유기 아민류와 휘발성유기화합물의 분석법을 개발하고, 온라인 측정 장비를 활용한 실시간 대기 조성 모니터링도 수행합니다.</p>
+      <div class="keyword-list">
+        <span>미세먼지 화학 조성</span><span>유기성분 분석</span><span>기기분석</span><span>대기관측</span><span>실시간 모니터링</span>
+      </div>
+    </div></div>
   </div>
-</header>
+</div>
 
-<!-- Hero -->
-<section class="hero" id="home">
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span></span>
-        Kangwon National University
+<!-- ====== RESEARCH - Source ====== -->
+<div class="page-section" id="page-research-source">
+  <div class="page-banner"><div class="wrap"><h1>연구 분야</h1><div class="en-title">Research</div></div></div>
+  <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Research <span>›</span> <strong>Source &amp; Process</strong></div></div>
+  <div class="content-area">
+    <aside class="sidebar"><h3>Research</h3><ul>
+      <li><a href="#" onclick="showPage('research-observation');return false;">Observation &amp; Analysis</a></li>
+      <li><a href="#" onclick="showPage('research-source');return false;" class="active">Source &amp; Process</a></li>
+      <li><a href="#" onclick="showPage('research-impact');return false;">Air Quality &amp; Health</a></li>
+    </ul></aside>
+    <div class="main-content"><div class="research-section">
+      <h2>배출원 추적과 대기 반응 과정</h2>
+      <p>수용모델과 다변량 통계, 궤적 분석을 통해 대기오염물질의 배출원을 추적하고 1차 배출과 2차 생성의 기여를 정량합니다. 도시 대기 중 미세먼지의 주요 오염원을 식별하고 각 배출원의 기여율을 산정합니다.</p>
+      <p>챔버실험과 박스모델을 활용하여 대기 중 화학 반응에 의한 이차 에어로졸 생성 메커니즘을 규명합니다. 광화학 반응과 야간 화학반응을 포함한 다양한 조건에서의 에어로졸 생성 경로를 연구합니다.</p>
+      <div class="keyword-list">
+        <span>수용모델</span><span>궤적 분석</span><span>챔버실험</span><span>박스모델</span><span>이차 에어로졸</span><span>배출원 기여</span>
       </div>
-      <h1>대기환경과 기후변화를<br/>함께 연구합니다</h1>
-      <p>
-        강원대학교 대기환경연구실은 초미세먼지 중 유기질소화합물의 발생 기원과
-        이차 에어로졸 생성 메커니즘을 규명합니다. 현장 관측과 화학분석,
-        챔버실험, 수용모델 및 대기화학 모델을 결합하여 대기오염과 기후변화의
-        과학적 근거를 제시합니다.
-      </p>
-      <div class="hero-btns">
-        <a href="#research" class="btn btn-primary">연구 분야 →</a>
-        <a href="#contact" class="btn btn-outline">연구실 문의</a>
-      </div>
-    </div>
+    </div></div>
   </div>
-</section>
+</div>
 
-<!-- Quick Strip -->
-<div class="quick-strip">
-  <div class="container">
-    <div class="quick-cards">
-      <div class="quick-card">
-        <div class="quick-icon">🔬</div>
-        <div>
-          <h3>Observation &amp; Analysis</h3>
-          <p>대기 시료 채취와 가스크로마토그래피-질량분석법 기반 화학분석으로 대기오염물질의 농도 수준과 화학 조성을 파악합니다.</p>
+<!-- ====== RESEARCH - Impact ====== -->
+<div class="page-section" id="page-research-impact">
+  <div class="page-banner"><div class="wrap"><h1>연구 분야</h1><div class="en-title">Research</div></div></div>
+  <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Research <span>›</span> <strong>Air Quality &amp; Health</strong></div></div>
+  <div class="content-area">
+    <aside class="sidebar"><h3>Research</h3><ul>
+      <li><a href="#" onclick="showPage('research-observation');return false;">Observation &amp; Analysis</a></li>
+      <li><a href="#" onclick="showPage('research-source');return false;">Source &amp; Process</a></li>
+      <li><a href="#" onclick="showPage('research-impact');return false;" class="active">Air Quality &amp; Health</a></li>
+    </ul></aside>
+    <div class="main-content"><div class="research-section">
+      <h2>대기질 변화와 환경영향 평가</h2>
+      <p>대기오염물질의 장거리 이동과 지역 간 대기질 특성 차이를 분석합니다. 역궤적 분석을 통해 미세먼지의 외부 유입 경로와 기상 요인의 영향을 파악하고, 대기오염물질의 건강 위해성을 평가합니다.</p>
+      <p>갈색탄소 에어로졸의 광학 특성과 기후영향 연구를 수행하고, 대기질 변화와 기후변화의 상호작용을 이해하여 환경 정책 수립에 필요한 과학적 근거를 제시합니다.</p>
+      <div class="keyword-list">
+        <span>건강 위해성 평가</span><span>갈색탄소</span><span>장거리 이동</span><span>대기질 예측</span><span>기후변화</span>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ====== MEMBER - Professor ====== -->
+<div class="page-section" id="page-member-prof">
+  <div class="page-banner"><div class="wrap"><h1>구성원</h1><div class="en-title">Group Member</div></div></div>
+  <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Group Member <span>›</span> <strong>Professor</strong></div></div>
+  <div class="content-area">
+    <aside class="sidebar"><h3>Group Member</h3><ul>
+      <li><a href="#" onclick="showPage('member-prof');return false;" class="active">Professor</a></li>
+      <li><a href="#" onclick="showPage('member-students');return false;">Members</a></li>
+      <li><a href="#" onclick="showPage('member-positions');return false;">Positions Available</a></li>
+    </ul></aside>
+    <div class="main-content">
+      <div class="prof-card">
+        <div class="prof-photo">👩‍🔬</div>
+        <div class="prof-info">
+          <h2>최나래</h2>
+          <div class="en">Narae Choi, Ph.D.</div>
+          <table class="prof-table">
+            <tr><th>직위</th><td>조교수 (Assistant Professor)</td></tr>
+            <tr><th>소속</th><td>강원대학교 환경공학전공</td></tr>
+            <tr><th>전화</th><td>033-250-6353</td></tr>
+            <tr><th>이메일</th><td>narae@kangwon.ac.kr</td></tr>
+            <tr><th>연구실</th><td>공학대학 5호관</td></tr>
+          </table>
         </div>
       </div>
-      <div class="quick-card">
-        <div class="quick-icon">📊</div>
-        <div>
-          <h3>Source &amp; Process</h3>
-          <p>수용모델과 궤적 분석을 활용하여 배출원을 추적하고 챔버실험과 박스모델을 통해 대기 중 화학 변환 과정을 규명합니다.</p>
-        </div>
+
+      <div class="research-section">
+        <h2>학력</h2>
+        <table class="prof-table" style="max-width:720px;">
+          <tr><th>박사</th><td>이화여자대학교 환경공학과 (2017–2021)</td></tr>
+          <tr><th>석사</th><td>이화여자대학교 환경공학과 (2014–2016)</td></tr>
+          <tr><th>학사</th><td>이화여자대학교 환경공학/경제학 복수전공 (2009–2014)</td></tr>
+          <tr><th>교환학생</th><td>Ruhr University Bochum, Germany (2011–2012)</td></tr>
+        </table>
       </div>
-      <div class="quick-card">
-        <div class="quick-icon">🌍</div>
-        <div>
-          <h3>Air Quality &amp; Climate</h3>
-          <p>대기질 변화와 기후변화의 상호작용을 이해하고 건강영향 평가 및 정책 수립의 근거를 마련합니다.</p>
-        </div>
+
+      <div class="research-section">
+        <h2>경력</h2>
+        <table class="prof-table">
+          <tr><th>2023–현재</th><td>강원대학교 환경공학전공 조교수</td></tr>
+          <tr><th>2021–2023</th><td>Georgia Institute of Technology, School of Chemical & Biomolecular Engineering 박사후연구원</td></tr>
+        </table>
+      </div>
+
+      <div class="research-section">
+        <h2>연구 분야</h2>
+        <p>대기화학, 미세먼지 유기성분 분석, 배출원 추적, 이차 에어로졸 생성 메커니즘, 챔버실험, 대기오염 건강 위해성 평가, 대기환경과 기후변화</p>
+      </div>
+
+      <div class="research-section">
+        <h2>수상</h2>
+        <table class="prof-table" style="max-width:720px;">
+          <tr><th>2021</th><td>우수학술상, 이화여자대학교</td></tr>
+          <tr><th>2021</th><td>우수발표상, 한국입자에어로졸학회</td></tr>
+          <tr><th>2020</th><td>우수포스터상, Joint International Symposium, Kanazawa University</td></tr>
+          <tr><th>2019</th><td>우수학생발표상, 한국대기환경학회</td></tr>
+          <tr><th>2016</th><td>최우수석사학위논문상, 이화여자대학교</td></tr>
+        </table>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Research -->
-<section class="section section-alt" id="research">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Research Areas</div>
-      <h2 class="section-title">연구 분야</h2>
-      <p class="section-desc">
-        현장 관측과 화학분석, 챔버실험, 수용모델 및 박스모델을 결합하여
-        대기오염물질의 발생 기원부터 환경 및 건강영향까지 통합적으로 연구합니다.
-      </p>
-      <div class="section-divider"></div>
-    </div>
-    <div class="research-grid">
-
-      <div class="research-card">
-        <div class="research-card-accent rc-blue"></div>
-        <div class="research-card-body">
-          <div class="rc-label">Atmospheric Chemistry</div>
-          <h3>초미세먼지 유기질소화합물 특성 연구</h3>
-          <p>
-            초미세먼지 중 나이트로사민, 나이트라민, 아미노산 등
-            유기질소화합물의 농도 수준과 화학 조성을 분석합니다.
-            도시와 해양 배경 지역에서의 시공간 분포 특성과
-            계절 변동성을 비교하여 발생 기원을 규명합니다.
-          </p>
-          <div class="research-keywords">
-            <span class="keyword-tag">나이트로사민</span>
-            <span class="keyword-tag">나이트라민</span>
-            <span class="keyword-tag">아미노산</span>
-            <span class="keyword-tag">초미세먼지</span>
-          </div>
-        </div>
+<!-- ====== MEMBER - Students ====== -->
+<div class="page-section" id="page-member-students">
+  <div class="page-banner"><div class="wrap"><h1>구성원</h1><div class="en-title">Group Member</div></div></div>
+  <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Group Member <span>›</span> <strong>Members</strong></div></div>
+  <div class="content-area">
+    <aside class="sidebar"><h3>Group Member</h3><ul>
+      <li><a href="#" onclick="showPage('member-prof');return false;">Professor</a></li>
+      <li><a href="#" onclick="showPage('member-students');return false;" class="active">Members</a></li>
+      <li><a href="#" onclick="showPage('member-positions');return false;">Positions Available</a></li>
+    </ul></aside>
+    <div class="main-content">
+      <div class="research-section"><h2>대학원생</h2>
+        <div class="member-grid"><div class="member-item"><div class="avatar">🎓</div><h4>추후 업데이트</h4><p>석사과정</p></div></div>
       </div>
-
-      <div class="research-card">
-        <div class="research-card-accent rc-gold"></div>
-        <div class="research-card-body">
-          <div class="rc-label">Source Apportionment</div>
-          <h3>배출원 추적과 이차 에어로졸 생성</h3>
-          <p>
-            수용모델과 다변량 통계, 궤적 분석을 통해
-            대기오염물질의 1차 배출과 2차 생성 기여를 정량합니다.
-            챔버실험과 박스모델을 활용하여
-            이차 유기 에어로졸과 이차 질소화합물의
-            생성 메커니즘을 해석합니다.
-          </p>
-          <div class="research-keywords">
-            <span class="keyword-tag">수용모델</span>
-            <span class="keyword-tag">궤적 분석</span>
-            <span class="keyword-tag">챔버실험</span>
-            <span class="keyword-tag">박스모델</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="research-card">
-        <div class="research-card-accent rc-navy"></div>
-        <div class="research-card-body">
-          <div class="rc-label">Environment &amp; Health</div>
-          <h3>대기질 변화와 건강영향 평가</h3>
-          <p>
-            대기오염물질의 장거리 이동과 수도권 및 풍하지역의 대기질 특성을 비교합니다.
-            유해 대기오염물질의 건강 위해성 평가와 갈색탄소 에어로졸의
-            기후영향 연구를 통해 환경 정책 수립에 필요한 과학적 근거를 제시합니다.
-          </p>
-          <div class="research-keywords">
-            <span class="keyword-tag">건강 위해성</span>
-            <span class="keyword-tag">갈색탄소</span>
-            <span class="keyword-tag">장거리 이동</span>
-            <span class="keyword-tag">휘발성유기화합물</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Members -->
-<section class="section" id="members">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Members</div>
-      <h2 class="section-title">구성원</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="members-grid">
-
-      <div class="member-card pi-card">
-        <div class="member-avatar">👩‍🔬</div>
-        <div class="member-info">
-          <div class="member-role">Principal Investigator</div>
-          <h3>최나래 (Narae Choi)</h3>
-          <p>
-            강원대학교 환경공학전공 교수. 대기화학, 유기질소화합물, 미세먼지 오염원
-            추적 및 이차 에어로졸 생성 메커니즘을 연구합니다.
-            이화여자대학교에서 박사학위를 취득하고
-            Georgia Institute of Technology에서 박사후연구원 과정을 수행했습니다.
-          </p>
-          <div class="member-detail">
-            <span>📧 추후 입력</span>
-            <span>🏛️ 환경공학전공</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="member-card">
-        <div class="member-avatar">🎓</div>
-        <div class="member-info">
-          <div class="member-role">Graduate Students</div>
-          <h3>대학원생</h3>
-          <p>석사 및 박사과정 연구원 정보를 업데이트할 예정입니다.</p>
-        </div>
-      </div>
-
-      <div class="member-card">
-        <div class="member-avatar">📚</div>
-        <div class="member-info">
-          <div class="member-role">Undergraduate Researchers</div>
-          <h3>학부연구생</h3>
-          <p>학부연구생 참여 정보를 업데이트할 예정입니다.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Publications -->
-<section class="section section-alt" id="publications">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Publications</div>
-      <h2 class="section-title">대표 논문</h2>
-      <p class="section-desc">대기화학 및 환경영향 관련 주요 연구 성과입니다.</p>
-      <div class="section-divider"></div>
-    </div>
-    <div class="pub-list">
-      <div class="pub-item">
-        <div class="pub-num">1</div>
-        <div class="pub-content">
-          <h4>대표 논문 제목 추후 입력</h4>
-          <p class="pub-meta">
-            대기오염 유기질소화합물의 발생 기원과 건강 위해성에 관한 연구<br/>
-            <span class="pub-journal">게재 저널 추후 입력</span>
-          </p>
-        </div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-num">2</div>
-        <div class="pub-content">
-          <h4>대표 논문 제목 추후 입력</h4>
-          <p class="pub-meta">
-            배출원 추적 및 이차 에어로졸 생성 메커니즘에 관한 연구<br/>
-            <span class="pub-journal">게재 저널 추후 입력</span>
-          </p>
-        </div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-num">3</div>
-        <div class="pub-content">
-          <h4>대표 논문 제목 추후 입력</h4>
-          <p class="pub-meta">
-            도시 및 배경 지역의 초미세먼지 화학 조성 비교 연구<br/>
-            <span class="pub-journal">게재 저널 추후 입력</span>
-          </p>
-        </div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-num">4</div>
-        <div class="pub-content">
-          <h4>대표 논문 제목 추후 입력</h4>
-          <p class="pub-meta">
-            대기질 변화와 기후영향의 연계 분석 연구<br/>
-            <span class="pub-journal">게재 저널 추후 입력</span>
-          </p>
-        </div>
+      <div class="research-section" style="margin-top:36px;"><h2>학부연구생</h2>
+        <div class="member-grid"><div class="member-item"><div class="avatar">📚</div><h4>추후 업데이트</h4><p>학부연구생</p></div></div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- Notice -->
-<section class="section" id="notice">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Notice</div>
-      <h2 class="section-title">공지사항</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="notice-list">
-      <div class="notice-item">
-        <span class="notice-badge new">모집</span>
-        <h4>대학원생 및 학부연구생 모집</h4>
-        <p>대기환경연구실에서 함께 연구할 석사과정 대학원생과 학부연구생을 모집합니다. 대기화학과 미세먼지 연구에 관심 있는 분의 지원을 환영합니다.</p>
-      </div>
-      <div class="notice-item">
-        <span class="notice-badge">안내</span>
-        <h4>연구실 홈페이지 오픈</h4>
-        <p>강원대학교 대기환경연구실 홈페이지를 새롭게 개설했습니다. 연구 분야와 구성원 정보 등을 순차적으로 업데이트할 예정입니다.</p>
-      </div>
-      <div class="notice-item">
-        <span class="notice-badge">업데이트</span>
-        <h4>논문 및 프로젝트 정보 추가 예정</h4>
-        <p>최신 논문 게재 현황과 진행 중인 연구 프로젝트 정보를 곧 업데이트합니다.</p>
-      </div>
+<!-- ====== MEMBER - Positions ====== -->
+<div class="page-section" id="page-member-positions">
+  <div class="page-banner"><div class="wrap"><h1>구성원</h1><div class="en-title">Group Member</div></div></div>
+  <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Group Member <span>›</span> <strong>Positions Available</strong></div></div>
+  <div class="content-area">
+    <aside class="sidebar"><h3>Group Member</h3><ul>
+      <li><a href="#" onclick="showPage('member-prof');return false;">Professor</a></li>
+      <li><a href="#" onclick="showPage('member-students');return false;">Members</a></li>
+      <li><a href="#" onclick="showPage('member-positions');return false;" class="active">Positions Available</a></li>
+    </ul></aside>
+    <div class="main-content"><div class="research-section">
+      <h2>대학원생 및 학부연구생 모집</h2>
+      <p>강원대학교 대기환경연구실에서는 대기화학과 대기환경 연구에 관심 있는 석사과정 대학원생과 학부연구생을 모집합니다.</p>
+      <p style="margin-top:16px;"><strong>연구 주제:</strong> 미세먼지 유기성분 분석, 이차 에어로졸 생성 메커니즘, 챔버실험, 수용모델/박스모델 기반 배출원 추적, 대기환경과 기후변화</p>
+      <p style="margin-top:14px;"><strong>문의:</strong> narae@kangwon.ac.kr (최나래 교수)</p>
+    </div></div>
+  </div>
+</div>
+
+<!-- ====== PUBLICATION ====== -->
+<div class="page-section" id="page-publication">
+  <div class="page-banner"><div class="wrap"><h1>논문 목록</h1><div class="en-title">Publication</div></div></div>
+  <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Publication <span>›</span> <strong>Publication</strong></div></div>
+  <div class="content-area">
+    <aside class="sidebar"><h3>Publication</h3><ul><li><a href="#" class="active">Publication</a></li></ul></aside>
+    <div class="main-content">
+
+      <div class="pub-year">2026</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Kim, Y. P., Lee, J. Y., Kim, E., Kim, S., Song, M., Lee, T., Park, J.-S., Seo, S.-J., Lee, K., and Shin, H. J.: Wintertime source attribution and health risk assessment of particulate Nitro(so) compounds at urban and background sites in Republic of Korea, <em>Atmospheric Environment</em>, 373, 2026.</div>
+      <div class="pub-entry">Jung, D., Song, J., Kim, K., Kang, S., Kim, Y., Hong, S.-C., Lee, J.-B., Seo, S.-J., Lee, K., Park, J.-S., Song, M. J., <strong>Choi, N. R.</strong>, Lee, T.: Spatial and Seasonal Variation of Nitric Acid (HNO₃) and Understanding the Formation of NH₄NO₃ in the HNO₃–NH₃ system in Korea, <em>Aerosol and Air Quality Research</em>, 2026.</div>
+      <div class="pub-entry">Do, T. V., Zuend, A., <strong>Choi, N. R.</strong>, Lee, T., Shin, H., Lee, K., Park, J., Seo, S., Song, M.: Phase Behavior of Polluted and Clean Urban Winter PM₂.₅ from Optical Observations and Thermodynamic Equilibrium Modeling, <em>Environmental Science &amp; Technology</em>, 60, 5645-5651, 2026.</div>
+
+      <div class="pub-year">2025</div>
+      <div class="pub-entry">이석호, <strong>최나래</strong>: 강원도가 특별자치도로 승격됨에 따른 춘천의 대기질 예측. <em>한국대기환경학회지</em>, 21(3), 81-92, 2025.</div>
+      <div class="pub-entry">Kim, J. Y., Kim, Y. P., Yu, X., Yu, J., Wu, Z., Lee H.-M., Song, M., Jang, K. S., Kim, C., <strong>Choi, N. R.*</strong>, Lee, J. Y.*: Concentrations and formation pathways of nitrogen-containing organic compounds in PM₂.₅ from Seoul and Beijing. <em>Environmental Research</em>, 286, 122959, 2025.</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Kim, Y. P., Lee, J. Y., Ahn, Y. G., Kim, E., Kim, S., Shin, H. J.: Characteristics of the Atmospheric Behavior of Particulate Nitro(so) compounds in the Urban Atmosphere of Seoul during Spring 2019. <em>Atmospheric Environment</em>, 121337, 2025.</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Kim, Y. P., Ahn, Y. G., Lee, J. Y., Kim, E., Kim, S., Shin, H. J.: Trend and health risk of carcinogenic particulate nitrosamines in the atmosphere in Seoul, South Korea. <em>Atmospheric Environment</em>, 121309, 2025.</div>
+      <div class="pub-entry">Jo, J., <strong>Choi, N. R.</strong>, Lee, E., Lee, J. Y., Ahn, Y. G.: Comparison of Two Derivative Methods for the Quantification of Amino Acids in PM₂.₅ Using GC-MS/MS. <em>Chemosensors</em>, 13(8), 292, 2025.</div>
+      <div class="pub-entry"><strong>최나래</strong>, 김용표: 대기 중 입자상 니트로(소)화합물 농도를 결정하는 주요 변수. <em>한국대기환경학회지</em>, 41(1), 1-25, 2025.</div>
+
+      <div class="pub-year">2024</div>
+      <div class="pub-entry">안지민, 홍준표, 황혜정, <strong>최나래</strong>: 역궤적 분석을 통한 춘천지역 장기간 PM₁₀과 PM₂.₅ 외부 유입 경로 및 기상요인 영향 분석. <em>산업기술연구</em>, 51-61, 2024.</div>
+      <div class="pub-entry"><strong>Choi, N. R.*</strong>, Kim, Y. P., Lee, J. Y., Kim, E., Kim, S., Shin, H. J.: Impact of ozonation on the formation of particulate nitrosodimethylamine (NDMA) in atmosphere, <em>Chemosphere</em>, 349, 140794, 2024.</div>
+
+      <div class="pub-year">2022</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Park, S., Ju, S., Lim, Y. B., Lee, J. Y., Kim, E., Kim, S., Shin, H. J., Kim, Y. P.: Contribution of Liquid Water Content Enhancing Aqueous Phase Reaction Forming Ambient Particulate Nitrosamines, <em>Environmental Pollution</em>, 303, 119142, 2022.</div>
+
+      <div class="pub-year">2021</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Ahn, Y. G., Lee, J. Y., Kim, E., Kim, S., Park, S. M., Song, I. H., Shin, H. J., Kim, Y. P.: Particulate nitrosamines and nitramines in Seoul and their major sources: Primary emission vs. secondary formation, <em>Environmental Science &amp; Technology</em>, 55, 7841-7849, 2021.</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Yoon, Y. J., Park, K. T., Kim, K. A., Kim, Y. P., Ahn, Y. G., Lee, J. Y.: Trace Level Determination of Saccharides in Pristine Marine Aerosols by GC-Tandem Mass Spectrometry, <em>Toxics</em>, 9, 86, 2021.</div>
+
+      <div class="pub-year">2020</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Ahn, Y. G., Lee, J. Y., Kim, E., Kim, S., Park, S. M., Song, I. H., Kim, Y. P.: Winter-Time Particulate Nitrosamines and Nitramines in the Atmosphere at Seoul, South Korea, <em>Atmospheric Environment</em>, 237, 117582, 2020.</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Lee, J. Y., Ahn, Y. G., Kim, Y. P.: Determination of Atmospheric Amines at Seoul via GC/Tandem Mass Spectrometry, <em>Chemosphere</em>, 258, 127367, 2020.</div>
+
+      <div class="pub-year">2018</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Ahn, Y. G., Lim, H. B., Lee, J. Y., Jung, C. H., Kim, Y. P.: Particulate Nitrosamines in the Atmosphere at Seoul and Their Major Sources, <em>Air Quality, Atmosphere and Health</em>, 11(7), 855-865, 2018.</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Kim, Y. P.: Review on the Analytical Methods and Ambient Concentrations of Organic Nitrogenous Compounds in the Atmosphere, <em>한국대기환경학회지</em>, 34(1), 120-143, 2018.</div>
+
+      <div class="pub-year">2016</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Kim, Y. P., Ahn, Y. G.: Identification and Quantification of n-Nitrosamines in Cosmetics Using GC/CI-MS Coupled with HS-SPME, <em>Talanta</em>, 148, 69-74, 2016.</div>
+      <div class="pub-entry"><strong>Choi, N. R.</strong>, Lee, S. P., Lee, J. Y., Jung, C. H., Kim, Y. P.: Speciation and Source Identification of Organic Compounds in PM₁₀ over Seoul, South Korea, <em>Chemosphere</em>, 144, 1589-1596, 2016.</div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- Contact -->
-<section class="section section-alt" id="contact">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">Contact</div>
-      <h2 class="section-title">연락처</h2>
-      <div class="section-divider"></div>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-info-card">
-        <div class="contact-row">
-          <div class="contact-label">교수</div>
-          <div class="contact-value">최나래 (Narae Choi)</div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-label">소속</div>
-          <div class="contact-value">강원대학교 환경공학전공</div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-label">이메일</div>
-          <div class="contact-value"><a href="mailto:your_email@kangwon.ac.kr">이메일 주소 추후 입력</a></div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-label">연구실</div>
-          <div class="contact-value">
-            (24341) 강원특별자치도 춘천시 강원대학길 1<br/>
-            공학대학 5호관 (호수 추후 입력)
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-label">전화</div>
-          <div class="contact-value">전화번호 추후 입력</div>
-        </div>
-      </div>
-      <div class="contact-cta">
-        <h3>함께 연구할<br/>동료를 찾습니다</h3>
-        <p>
-          대기화학, 미세먼지, 대기환경 분야에 관심 있는 대학원생과
-          학부연구생을 환영합니다. 공동연구 제안이나 진학 문의도 편하게 연락해 주세요.
-        </p>
-        <a href="mailto:your_email@kangwon.ac.kr" class="btn btn-primary">이메일 보내기 →</a>
-      </div>
-    </div>
+<!-- ====== NOTICE ====== -->
+<div class="page-section" id="page-notice">
+  <div class="page-banner"><div class="wrap"><h1>게시판</h1><div class="en-title">Board</div></div></div>
+  <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Board <span>›</span> <strong>Notice</strong></div></div>
+  <div class="content-area">
+    <aside class="sidebar"><h3>Board</h3><ul>
+      <li><a href="#" onclick="showPage('notice');return false;" class="active">Notice</a></li>
+      <li><a href="#" onclick="showPage('activities');return false;">Activities</a></li>
+    </ul></aside>
+    <div class="main-content"><div class="research-section"><h2>Notice</h2>
+      <div class="home-panel" style="margin-top:0;"><ul>
+        <li><a href="#" onclick="showPage('member-positions');return false;"><span class="badge-new">NEW</span>대학원생 및 학부연구생 모집</a><span class="date">2026.03</span></li>
+        <li><a href="#">연구실 홈페이지 오픈</a><span class="date">2026.03</span></li>
+        <li><a href="#">논문 및 프로젝트 정보 업데이트 예정</a><span class="date">2026.03</span></li>
+      </ul></div>
+    </div></div>
   </div>
-</section>
+</div>
+
+<!-- ====== ACTIVITIES ====== -->
+<div class="page-section" id="page-activities">
+  <div class="page-banner"><div class="wrap"><h1>게시판</h1><div class="en-title">Board</div></div></div>
+  <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Board <span>›</span> <strong>Activities</strong></div></div>
+  <div class="content-area">
+    <aside class="sidebar"><h3>Board</h3><ul>
+      <li><a href="#" onclick="showPage('notice');return false;">Notice</a></li>
+      <li><a href="#" onclick="showPage('activities');return false;" class="active">Activities</a></li>
+    </ul></aside>
+    <div class="main-content"><div class="research-section"><h2>Activities</h2>
+      <div class="home-panel" style="margin-top:0;"><ul>
+        <li><a href="#"><span class="badge-new">NEW</span>EGU General Assembly 2026 (Vienna) 참가 예정</a><span class="date">2026.05</span></li>
+        <li><a href="#">Atmospheric Environment 논문 게재 (2026)</a><span class="date">2026.02</span></li>
+        <li><a href="#">한국대기환경학회 정기학술대회 발표</a><span class="date">2025.11</span></li>
+      </ul></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ====== CONTACT ====== -->
+<div class="page-section" id="page-contact">
+  <div class="page-banner"><div class="wrap"><h1>연락처</h1><div class="en-title">Contact</div></div></div>
+  <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Contact</div></div>
+  <div class="content-area">
+    <aside class="sidebar"><h3>Contact</h3><ul><li><a href="#" class="active">Contact</a></li></ul></aside>
+    <div class="main-content"><div class="research-section">
+      <h2>연락처</h2>
+      <dl class="contact-info">
+        <dt>교수</dt><dd>최나래 (Narae Choi)</dd>
+        <dt>소속</dt><dd>강원대학교 환경공학전공</dd>
+        <dt>전화</dt><dd>033-250-6353</dd>
+        <dt>이메일</dt><dd>narae@kangwon.ac.kr</dd>
+        <dt>주소</dt><dd>(24341) 강원특별자치도 춘천시 강원대학길 1 공학대학 5호관</dd>
+      </dl>
+    </div></div>
+  </div>
+</div>
 
 <!-- Footer -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-info">
-        <div class="footer-name">강원대학교 대기환경연구실</div>
-        <div>Atmospheric Environment Research Lab, Kangwon National University</div>
-        <div style="margin-top:4px;">(24341) 강원특별자치도 춘천시 강원대학길 1 공학대학 5호관</div>
-      </div>
-      <div class="footer-links">
-        <a href="https://environ.kangwon.ac.kr/environ/index.do" target="_blank">환경공학전공</a>
-        <a href="https://www.kangwon.ac.kr" target="_blank">강원대학교</a>
-        <a href="#home">맨 위로 ↑</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 강원대학교 대기환경연구실. All rights reserved. Hosted on GitHub Pages.
-    </div>
+<footer class="site-footer"><div class="wrap">
+  <div>
+    <div style="color:rgba(255,255,255,0.7);font-weight:700;margin-bottom:4px;">강원대학교 대기환경연구실</div>
+    <div>(24341) 강원특별자치도 춘천시 강원대학길 1 공학대학 5호관</div>
+    <div>전화: 033-250-6353 | 이메일: narae@kangwon.ac.kr</div>
   </div>
+  <div class="footer-links">
+    <a href="https://environ.kangwon.ac.kr/environ/index.do" target="_blank">환경공학전공</a>
+    <a href="https://www.kangwon.ac.kr" target="_blank">강원대학교</a>
+  </div>
+</div>
+<div class="wrap"><div class="footer-copy">© 2026 Atmospheric Environment Research Lab, Kangwon National University. All rights reserved.</div></div>
 </footer>
 
+<script>
+// Page routing
+function showPage(id){
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  const el=document.getElementById('page-'+id);
+  if(el)el.classList.add('active');
+  document.querySelectorAll('.main-nav .nav-item>a').forEach(a=>a.classList.remove('active'));
+  if(id==='home'){/* no nav highlight for home */}
+  else if(id.startsWith('research'))document.getElementById('nav-research').classList.add('active');
+  else if(id.startsWith('member'))document.getElementById('nav-member').classList.add('active');
+  else if(id==='publication')document.getElementById('nav-pub').classList.add('active');
+  else if(id==='notice'||id==='activities')document.getElementById('nav-board').classList.add('active');
+  else if(id==='contact')document.getElementById('nav-contact').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// Hero slideshow
+let slideIdx=0;
+const slides=document.querySelectorAll('.hero-slide');
+if(slides.length>1){
+  setInterval(()=>{
+    slides[slideIdx].classList.remove('active');
+    slideIdx=(slideIdx+1)%slides.length;
+    slides[slideIdx].classList.add('active');
+  },5000);
+}
+</script>
 </body>
 </html>
