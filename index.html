@@ -6,7 +6,7 @@
 <title>강원대학교 대기환경연구실 | Atmospheric Environment Research Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 :root {
   --knu-primary: #003366;
@@ -32,11 +32,13 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Noto Sans KR', 'Source Sans 3', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   color: var(--text-primary);
   line-height: 1.7;
   background: var(--bg-white);
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* ── Top Bar ── */
@@ -79,47 +81,49 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 82px;
 }
 .logo-area {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   text-decoration: none;
   color: var(--knu-primary);
 }
 .logo-area img {
-  height: 46px;
+  height: 64px;
   width: auto;
 }
 .logo-text {
   display: flex;
   flex-direction: column;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 .logo-text .lab-name {
-  font-family: 'Noto Serif KR', serif;
-  font-weight: 700;
-  font-size: 1.15rem;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
   color: var(--knu-primary);
+  letter-spacing: -0.01em;
 }
 .logo-text .lab-name-en {
   font-family: 'Source Sans 3', sans-serif;
   font-weight: 500;
-  font-size: 0.72rem;
+  font-size: 0.73rem;
   color: var(--text-light);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  margin-top: 2px;
 }
 
 .main-nav { display: flex; gap: 0; }
 .main-nav a {
   display: flex;
   align-items: center;
-  height: 72px;
+  height: 82px;
   padding: 0 22px;
   font-size: 0.92rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
   position: relative;
@@ -201,10 +205,10 @@ body {
   background: var(--knu-gold-light);
 }
 .hero h1 {
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Nanum Myeongjo', serif;
   font-size: 2.4rem;
-  font-weight: 700;
-  line-height: 1.35;
+  font-weight: 800;
+  line-height: 1.4;
   margin-bottom: 20px;
   text-shadow: 0 2px 20px rgba(0,0,0,0.15);
 }
@@ -212,9 +216,9 @@ body {
   font-size: 1.05rem;
   line-height: 1.85;
   color: rgba(255,255,255,0.88);
-  max-width: 640px;
+  max-width: 660px;
   margin-bottom: 32px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .hero-btns {
   display: flex;
@@ -228,11 +232,12 @@ body {
   padding: 12px 28px;
   border-radius: 4px;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.25s ease;
   cursor: pointer;
   border: none;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 .btn-primary {
   background: var(--knu-gold);
@@ -286,7 +291,7 @@ body {
 }
 .quick-card h3 {
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--knu-primary);
   margin-bottom: 4px;
   text-transform: uppercase;
@@ -311,16 +316,16 @@ body {
 .section-tag {
   display: inline-block;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--knu-accent);
   margin-bottom: 10px;
 }
 .section-title {
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Nanum Myeongjo', serif;
   font-size: 1.85rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--knu-primary);
   margin-bottom: 12px;
   line-height: 1.35;
@@ -368,7 +373,7 @@ body {
 }
 .research-card-body .rc-label {
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--knu-accent);
@@ -376,7 +381,7 @@ body {
 }
 .research-card-body h3 {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--knu-primary);
   margin-bottom: 12px;
   line-height: 1.4;
@@ -442,7 +447,7 @@ body {
 .member-info { flex: 1; }
 .member-role {
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--knu-accent);
@@ -451,7 +456,7 @@ body {
 .pi-card .member-role { color: var(--knu-gold-light); }
 .member-info h3 {
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 8px;
 }
 .member-info p {
@@ -509,12 +514,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.85rem;
 }
 .pub-content h4 {
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 6px;
   line-height: 1.5;
@@ -526,7 +531,7 @@ body {
 }
 .pub-content .pub-journal {
   color: var(--knu-accent);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 /* ── Notice ── */
@@ -550,7 +555,7 @@ body {
 .notice-badge {
   display: inline-block;
   font-size: 0.68rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 3px 10px;
@@ -562,7 +567,7 @@ body {
 .notice-badge.new { background: var(--knu-accent); }
 .notice-item h4 {
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 8px;
   line-height: 1.45;
@@ -599,7 +604,7 @@ body {
   flex-shrink: 0;
   width: 100px;
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--knu-primary);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -625,9 +630,9 @@ body {
   justify-content: center;
 }
 .contact-cta h3 {
-  font-family: 'Noto Serif KR', serif;
+  font-family: 'Nanum Myeongjo', serif;
   font-size: 1.35rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 16px;
   line-height: 1.4;
 }
@@ -656,7 +661,7 @@ body {
   gap: 40px;
 }
 .footer-info .footer-name {
-  font-weight: 600;
+  font-weight: 700;
   color: rgba(255,255,255,0.85);
   font-size: 0.92rem;
   margin-bottom: 8px;
@@ -703,6 +708,8 @@ body {
   .section-title { font-size: 1.5rem; }
   .member-card { flex-direction: column; text-align: center; align-items: center; }
   .pub-item { flex-direction: column; }
+  .logo-area img { height: 44px; }
+  .logo-text .lab-name { font-size: 1.1rem; }
 }
 
 /* ── Animations ── */
@@ -721,7 +728,7 @@ body {
 <!-- Top Bar -->
 <div class="top-bar">
   <div class="container">
-    <span>강원대학교 환경공학전공 미세먼지특성화대학원</span>
+    <span>강원대학교 환경공학전공</span>
     <div class="top-bar-links">
       <a href="https://environ.kangwon.ac.kr/environ/index.do" target="_blank">학과 홈페이지</a>
       <a href="https://www.kangwon.ac.kr" target="_blank">강원대학교</a>
@@ -763,9 +770,10 @@ body {
       </div>
       <h1>대기환경과 기후변화를<br/>함께 연구합니다</h1>
       <p>
-        강원대학교 대기환경연구실은 초미세먼지(PM2.5) 중 유기질소화합물의 발생 기원과
-        이차 에어로졸 생성 메커니즘을 규명합니다. 현장 관측과 화학분석, 수용모델 및
-        대기화학 모델을 결합하여 대기오염과 기후변화의 과학적 근거를 제시합니다.
+        강원대학교 대기환경연구실은 초미세먼지 중 유기질소화합물의 발생 기원과
+        이차 에어로졸 생성 메커니즘을 규명합니다. 현장 관측과 화학분석,
+        챔버실험, 수용모델 및 대기화학 모델을 결합하여 대기오염과 기후변화의
+        과학적 근거를 제시합니다.
       </p>
       <div class="hero-btns">
         <a href="#research" class="btn btn-primary">연구 분야 →</a>
@@ -783,14 +791,14 @@ body {
         <div class="quick-icon">🔬</div>
         <div>
           <h3>Observation &amp; Analysis</h3>
-          <p>대기 시료 채취와 GC-MS 기반 화학분석으로 대기오염물질의 농도 수준과 화학 조성을 파악합니다.</p>
+          <p>대기 시료 채취와 가스크로마토그래피-질량분석법 기반 화학분석으로 대기오염물질의 농도 수준과 화학 조성을 파악합니다.</p>
         </div>
       </div>
       <div class="quick-card">
         <div class="quick-icon">📊</div>
         <div>
           <h3>Source &amp; Process</h3>
-          <p>PMF 수용모델과 궤적 분석을 활용하여 배출원을 추적하고 대기 중 화학 변환 과정을 평가합니다.</p>
+          <p>수용모델과 궤적 분석을 활용하여 배출원을 추적하고 챔버실험과 박스모델을 통해 대기 중 화학 변환 과정을 규명합니다.</p>
         </div>
       </div>
       <div class="quick-card">
@@ -811,7 +819,7 @@ body {
       <div class="section-tag">Research Areas</div>
       <h2 class="section-title">연구 분야</h2>
       <p class="section-desc">
-        관측과 화학분석, 통계 기법과 대기화학 모델을 결합하여
+        현장 관측과 화학분석, 챔버실험, 수용모델 및 박스모델을 결합하여
         대기오염물질의 발생 기원부터 환경 및 건강영향까지 통합적으로 연구합니다.
       </p>
       <div class="section-divider"></div>
@@ -822,18 +830,18 @@ body {
         <div class="research-card-accent rc-blue"></div>
         <div class="research-card-body">
           <div class="rc-label">Atmospheric Chemistry</div>
-          <h3>PM2.5 유기질소화합물 특성 연구</h3>
+          <h3>초미세먼지 유기질소화합물 특성 연구</h3>
           <p>
-            초미세먼지(PM2.5) 중 나이트로사민, 나이트라민, 아미노산 등
+            초미세먼지 중 나이트로사민, 나이트라민, 아미노산 등
             유기질소화합물의 농도 수준과 화학 조성을 분석합니다.
             도시와 해양 배경 지역에서의 시공간 분포 특성과
             계절 변동성을 비교하여 발생 기원을 규명합니다.
           </p>
           <div class="research-keywords">
-            <span class="keyword-tag">Nitrosamines</span>
-            <span class="keyword-tag">Nitramines</span>
-            <span class="keyword-tag">Amino acids</span>
-            <span class="keyword-tag">PM2.5</span>
+            <span class="keyword-tag">나이트로사민</span>
+            <span class="keyword-tag">나이트라민</span>
+            <span class="keyword-tag">아미노산</span>
+            <span class="keyword-tag">초미세먼지</span>
           </div>
         </div>
       </div>
@@ -844,16 +852,17 @@ body {
           <div class="rc-label">Source Apportionment</div>
           <h3>배출원 추적과 이차 에어로졸 생성</h3>
           <p>
-            PMF 수용모델, OPLS-DA 다변량 통계, 궤적 분석을 통해
+            수용모델과 다변량 통계, 궤적 분석을 통해
             대기오염물질의 1차 배출과 2차 생성 기여를 정량합니다.
-            박스모델을 활용한 이차 유기 에어로졸과 이차 질소화합물의
-            생성 메커니즘 해석에도 주력합니다.
+            챔버실험과 박스모델을 활용하여
+            이차 유기 에어로졸과 이차 질소화합물의
+            생성 메커니즘을 해석합니다.
           </p>
           <div class="research-keywords">
-            <span class="keyword-tag">PMF</span>
-            <span class="keyword-tag">HYSPLIT</span>
-            <span class="keyword-tag">Box model</span>
-            <span class="keyword-tag">SOA</span>
+            <span class="keyword-tag">수용모델</span>
+            <span class="keyword-tag">궤적 분석</span>
+            <span class="keyword-tag">챔버실험</span>
+            <span class="keyword-tag">박스모델</span>
           </div>
         </div>
       </div>
@@ -865,14 +874,14 @@ body {
           <h3>대기질 변화와 건강영향 평가</h3>
           <p>
             대기오염물질의 장거리 이동과 수도권 및 풍하지역의 대기질 특성을 비교합니다.
-            유해 대기오염물질의 건강 위해성 평가와 갈색탄소(BrC) 에어로졸의
+            유해 대기오염물질의 건강 위해성 평가와 갈색탄소 에어로졸의
             기후영향 연구를 통해 환경 정책 수립에 필요한 과학적 근거를 제시합니다.
           </p>
           <div class="research-keywords">
-            <span class="keyword-tag">Health risk</span>
-            <span class="keyword-tag">Brown carbon</span>
-            <span class="keyword-tag">Long-range transport</span>
-            <span class="keyword-tag">VOCs</span>
+            <span class="keyword-tag">건강 위해성</span>
+            <span class="keyword-tag">갈색탄소</span>
+            <span class="keyword-tag">장거리 이동</span>
+            <span class="keyword-tag">휘발성유기화합물</span>
           </div>
         </div>
       </div>
@@ -899,8 +908,8 @@ body {
           <p>
             강원대학교 환경공학전공 교수. 대기화학, 유기질소화합물, 미세먼지 오염원
             추적 및 이차 에어로졸 생성 메커니즘을 연구합니다.
-            Georgia Institute of Technology에서 박사후연구원 과정을 수행했으며,
-            Environmental Science &amp; Technology, Atmospheric Environment 등에 논문을 발표했습니다.
+            이화여자대학교에서 박사학위를 취득하고
+            Georgia Institute of Technology에서 박사후연구원 과정을 수행했습니다.
           </p>
           <div class="member-detail">
             <span>📧 추후 입력</span>
@@ -966,7 +975,7 @@ body {
         <div class="pub-content">
           <h4>대표 논문 제목 추후 입력</h4>
           <p class="pub-meta">
-            도시 및 배경 지역의 PM2.5 화학 조성 비교 연구<br/>
+            도시 및 배경 지역의 초미세먼지 화학 조성 비교 연구<br/>
             <span class="pub-journal">게재 저널 추후 입력</span>
           </p>
         </div>
@@ -1029,10 +1038,7 @@ body {
         </div>
         <div class="contact-row">
           <div class="contact-label">소속</div>
-          <div class="contact-value">
-            강원대학교 환경공학전공<br/>
-            미세먼지특성화대학원
-          </div>
+          <div class="contact-value">강원대학교 환경공학전공</div>
         </div>
         <div class="contact-row">
           <div class="contact-label">이메일</div>
