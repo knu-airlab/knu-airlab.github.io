@@ -539,7 +539,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 <div class="wrap"><div class="footer-copy">© 2026 Atmospheric Environment Research Lab, Kangwon National University. All rights reserved.</div></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Page routing
 function showPage(id){
   document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
@@ -549,4 +549,23 @@ function showPage(id){
   if(id==='home'){/* no nav highlight for home */}
   else if(id.startsWith('research'))document.getElementById('nav-research').classList.add('active');
   else if(id.startsWith('member'))document.getElementById('nav-member').classList.add('active');
-  else if(id==='pub
+  else if(id==='publication')document.getElementById('nav-pub').classList.add('active');
+  else if(id==='notice'||id==='activities')document.getElementById('nav-board').classList.add('active');
+  else if(id==='contact')document.getElementById('nav-contact').classList.add('active');
+  window.scrollTo(0,0);
+  // close mobile menu
+  document.querySelector('.main-nav').classList.remove('open');
+}
+
+// Hero slideshow
+(function(){
+  const slides=document.querySelectorAll('.hero-slide');
+  if(!slides.length)return;
+  let cur=0;
+  setInterval(()=>{
+    slides[cur].classList.remove('active');
+    cur=(cur+1)%slides.length;
+    slides[cur].classList.add('active');
+  },5000);
+})();
+</script>
