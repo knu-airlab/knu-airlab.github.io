@@ -78,9 +78,9 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .sidebar li a:hover,.sidebar li a.active{color:#003366;background:#f8fafc;font-weight:700;border-left:3px solid #2a7abf;padding-left:15px;}
 .main-content{flex:1;min-width:0;}
 
-/* ── Professor card — photo top-aligned with table ── */
-.prof-card{display:flex;gap:36px;margin-bottom:44px;align-items:flex-start;}
-.prof-photo{width:190px;min-height:240px;background:#e8eef4;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid #ddd;overflow:hidden;margin-top:46px;/* offset to align with table top after name+en */}
+/* ── Professor card — vertically centered ── */
+.prof-card{display:flex;gap:36px;margin-bottom:44px;align-items:center;}
+.prof-photo{width:190px;min-height:240px;background:#e8eef4;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid #ddd;overflow:hidden;}
 .prof-photo img{width:100%;height:100%;object-fit:cover;}
 .prof-photo .placeholder-icon{font-size:4.5rem;}
 .prof-info{flex:1;min-width:0;}
@@ -104,6 +104,11 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .research-figure .fig-box .fig-placeholder{color:#aab;font-size:0.88rem;padding:30px 20px;}
 .research-figure .fig-caption{font-size:0.82rem;color:#888;margin-top:10px;text-align:center;}
 
+/* ── Google Scholar link ── */
+.scholar-link{display:inline-flex;align-items:center;gap:8px;background:#f0f5fa;border:1px solid #d8e4ef;border-radius:6px;padding:10px 20px;font-size:0.92rem;color:#003366;text-decoration:none;font-weight:700;margin-bottom:28px;transition:all .2s;}
+.scholar-link:hover{background:#e0ecf6;border-color:#2a7abf;color:#2a7abf;}
+.scholar-link svg{width:20px;height:20px;}
+
 .pub-year{font-size:1.15rem;font-weight:800;color:#003366;margin:32px 0 14px;padding-bottom:6px;border-bottom:2px solid #e8e8e8;}
 .pub-year:first-child{margin-top:0;}
 .pub-entry{font-size:0.92rem;color:#444;line-height:1.75;margin-bottom:12px;padding-left:18px;border-left:3px solid #e8e8e8;}
@@ -125,9 +130,25 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .service-table td{padding:9px 14px;border-bottom:1px solid #eee;color:#444;}
 .service-table tr:hover{background:#f8fafc;}
 
-/* bilingual block for positions */
 .bilingual{margin-top:28px;padding-top:28px;border-top:1px solid #e8e8e8;}
 .bilingual p{font-family:'Source Sans 3',sans-serif;color:#555;font-size:0.95rem;line-height:1.85;}
+
+/* ── Notice detail ── */
+.notice-list{list-style:none;}
+.notice-item{border-bottom:1px solid #f0f0f0;}
+.notice-item .notice-header{display:flex;justify-content:space-between;align-items:center;padding:14px 0;cursor:pointer;transition:color .15s;}
+.notice-item .notice-header:hover{color:#2a7abf;}
+.notice-item .notice-title{flex:1;font-size:0.95rem;font-weight:700;color:#333;}
+.notice-item .notice-header:hover .notice-title{color:#2a7abf;}
+.notice-item .notice-date{color:#aaa;font-size:0.82rem;flex-shrink:0;margin-left:16px;}
+.notice-item .notice-arrow{color:#ccc;font-size:0.8rem;margin-left:10px;transition:transform .2s;}
+.notice-item.open .notice-arrow{transform:rotate(90deg);color:#2a7abf;}
+.notice-item .notice-body{display:none;padding:0 0 20px 0;font-size:0.94rem;color:#555;line-height:1.85;}
+.notice-item.open .notice-body{display:block;}
+
+/* ── Map ── */
+.map-wrap{margin-top:28px;border-radius:8px;overflow:hidden;border:1px solid #e0e0e0;}
+.map-wrap iframe{display:block;width:100%;height:380px;border:none;}
 
 .site-footer{background:#2c3e50;color:rgba(255,255,255,0.5);padding:36px 0;font-size:0.82rem;line-height:1.7;}
 .site-footer .wrap{max-width:1260px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;}
@@ -149,7 +170,6 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
   .content-area{flex-direction:column;}
   .sidebar{width:100%;}
   .prof-card{flex-direction:column;align-items:center;text-align:center;}
-  .prof-photo{margin-top:0;}
   .home-panels{grid-template-columns:1fr;}
   .home-boxes{grid-template-columns:repeat(2,1fr);}
   .site-footer .wrap{flex-direction:column;}
@@ -238,14 +258,12 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
   </div>
   <div class="home-panels">
     <div class="home-panel"><h2>Notice</h2><ul>
-      <li><a href="#" onclick="showPage('member-positions');return false;"><span class="badge-new">NEW</span>대학원생 및 학부연구생 모집</a><span class="date">2026.03</span></li>
+      <li><a href="#" onclick="showPage('notice');return false;"><span class="badge-new">NEW</span>대학원생 및 학부연구생 모집</a><span class="date">2026.03</span></li>
       <li><a href="#" onclick="showPage('notice');return false;">연구실 홈페이지 오픈</a><span class="date">2026.03</span></li>
       <li><a href="#" onclick="showPage('notice');return false;">논문 및 프로젝트 정보 업데이트 예정</a><span class="date">2026.03</span></li>
     </ul></div>
     <div class="home-panel"><h2>Activities</h2><ul>
-      <li><a href="#"><span class="badge-new">NEW</span>EGU General Assembly 2026 (Vienna) 참가</a><span class="date">2026.05</span></li>
-      <li><a href="#">Atmospheric Environment 논문 게재</a><span class="date">2026.02</span></li>
-      <li><a href="#">한국대기환경학회 정기학술대회 발표</a><span class="date">2025.11</span></li>
+      <li><span style="color:#999;font-size:0.92rem;">게시물이 없습니다.</span></li>
     </ul></div>
   </div>
 </div>
@@ -267,27 +285,15 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
         <h3>분석법 개발</h3>
         <p>미세먼지와 대기 중 극미량 유기화합물을 정확하게 정량하기 위한 분석법을 개발합니다. 유도체화 반응, 헤드스페이스-고체상 미량추출법(Head Space-Solid Phase Micro Extraction, HS-SPME), 속슬렛 추출(Soxhlet Extraction) 등 다양한 전처리 기법을 적용하여 시료 회수율을 높이고, 가스크로마토그래피-탄뎀질량분석법(Gas Chromatography-Tandem Mass Spectrometry, GC-MS/MS)으로 정량합니다. 분석 대상은 유기 아민류, 니트로사민류, 니트라민류, 아미노산, 당류 등 광범위한 유기화합물을 포괄하며, 새로운 분석 대상 물질로 지속적으로 확장하고 있습니다.</p>
         <div class="research-figure">
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 유도체화-HS-SPME-GC-MS/MS 분석 흐름도</div>
-            <div class="fig-caption">극미량 유기화합물 분석을 위한 전처리 및 기기분석 과정</div>
-          </div>
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 GC-MS/MS 크로마토그램 예시</div>
-            <div class="fig-caption">대기 중 유기 아민류의 GC-MS/MS 분석 결과</div>
-          </div>
+          <div class="fig-box"><div class="fig-placeholder">📷 유도체화-HS-SPME-GC-MS/MS 분석 흐름도</div><div class="fig-caption">극미량 유기화합물 분석을 위한 전처리 및 기기분석 과정</div></div>
+          <div class="fig-box"><div class="fig-placeholder">📷 GC-MS/MS 크로마토그램 예시</div><div class="fig-caption">대기 중 유기 아민류의 GC-MS/MS 분석 결과</div></div>
         </div>
 
         <h3>미세먼지 유기성분 정량 및 특성 규명</h3>
         <p>미세먼지(PM<sub>2.5</sub>, PM<sub>10</sub>) 중 다양한 유기성분의 농도 수준과 화학 조성을 분석합니다. 지방산(Fatty Acids), 당류(Sugars), 다환방향족탄화수소(Polycyclic Aromatic Hydrocarbons, PAHs), 모노카르복실산(Mono-carboxylic Acids)은 물론 니트로사민류(Nitrosamines), 니트라민류(Nitramines), 아미노산(Amino Acids) 등 질소 함유 유기화합물까지 포괄적으로 정량합니다. 도시 지역과 배경 지역에서 동시 시료 채취를 수행하여 지역 간 오염 특성 차이와 계절별 변동 경향을 비교하고, 기후변화 유발 물질로서의 가능성이 있는 갈색탄소(Brown Carbon, BrC) 에어로졸 구성 성분을 포함하여 분석 대상을 확장해 나가고 있습니다.</p>
         <div class="research-figure">
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 유기화합물 농도 분포 그래프</div>
-            <div class="fig-caption">PM 중 주요 유기성분의 계절별 농도 분포</div>
-          </div>
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 도시-배경 지역 비교 관측 결과</div>
-            <div class="fig-caption">지역 간 유기 질소화합물 농도 및 조성 비교</div>
-          </div>
+          <div class="fig-box"><div class="fig-placeholder">📷 유기화합물 농도 분포 그래프</div><div class="fig-caption">PM 중 주요 유기성분의 계절별 농도 분포</div></div>
+          <div class="fig-box"><div class="fig-placeholder">📷 도시-배경 지역 비교 관측 결과</div><div class="fig-caption">지역 간 유기 질소화합물 농도 및 조성 비교</div></div>
         </div>
 
         <div class="keyword-list">
@@ -315,27 +321,15 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
         <h3>배출원 식별 및 기여도 정량</h3>
         <p>대기오염물질의 배출원을 규명하고 각 배출원의 기여율을 정량하는 것은 효과적인 대기환경 관리의 출발점입니다. 양행렬 인자분석(Positive Matrix Factorization, PMF), 직교부분최소자승 판별분석(Orthogonal Partial Least Squares-Discriminant Analysis, OPLS-DA), 역궤적 분석(Hybrid Single-Particle Lagrangian Integrated Trajectory, HYSPLIT) 등 다양한 수용모델과 다변량 통계 기법을 활용합니다. 자동차 배기가스, 요리, 연소 과정, 바이오매스 연소, 장거리 이동 등 1차 배출원을 식별하고, 대기 중 화학 반응에 의한 2차 생성의 기여를 구분합니다.</p>
         <div class="research-figure">
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 PMF/OPLS-DA 배출원 기여 분석 결과</div>
-            <div class="fig-caption">수용모델 기반 배출원 식별 및 기여율 정량</div>
-          </div>
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 1차 배출원 분류 모식도</div>
-            <div class="fig-caption">다양한 배출원으로부터의 대기오염물질 기여</div>
-          </div>
+          <div class="fig-box"><div class="fig-placeholder">📷 PMF/OPLS-DA 배출원 기여 분석 결과</div><div class="fig-caption">수용모델 기반 배출원 식별 및 기여율 정량</div></div>
+          <div class="fig-box"><div class="fig-placeholder">📷 1차 배출원 분류 모식도</div><div class="fig-caption">다양한 배출원으로부터의 대기오염물질 기여</div></div>
         </div>
 
         <h3>박스모델 및 챔버실험을 통한 생성 메커니즘 규명</h3>
         <p>대기 중 유기성분이 1차 배출에 의한 것인지 화학 반응을 통해 2차 생성된 것인지를 구분하는 것은 오염 저감 전략 수립에 핵심적인 과제입니다. 박스모델(Box Model) 시뮬레이션을 통해 하이드록실 라디칼(OH Radical) 반응, 오존(O₃) 산화, 야간 질산 라디칼(NO₃ Radical) 반응 등 각 화학 경로의 기여도를 정량합니다. 챔버실험을 통해 특정 전구체로부터 이차 유기 에어로졸(Secondary Organic Aerosol, SOA)이 생성되는 과정을 제어된 조건에서 확인하고 현장 관측 결과와 비교합니다. 이러한 접근을 통해 대기오염과 기후변화를 동시에 유발하는 물질의 생성 메커니즘과 거동 특성을 예측할 수 있습니다.</p>
         <div class="research-figure">
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 박스모델 시뮬레이션 결과</div>
-            <div class="fig-caption">1차 배출 vs. 2차 생성 기여 비교</div>
-          </div>
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 챔버실험 개요 또는 반응 경로도</div>
-            <div class="fig-caption">이차 유기 에어로졸 생성 메커니즘 규명</div>
-          </div>
+          <div class="fig-box"><div class="fig-placeholder">📷 박스모델 시뮬레이션 결과</div><div class="fig-caption">1차 배출 vs. 2차 생성 기여 비교</div></div>
+          <div class="fig-box"><div class="fig-placeholder">📷 챔버실험 개요 또는 반응 경로도</div><div class="fig-caption">이차 유기 에어로졸 생성 메커니즘 규명</div></div>
         </div>
 
         <div class="keyword-list">
@@ -363,40 +357,22 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
         <h3>장거리 이동과 지역 간 대기질 특성</h3>
         <p>역궤적 분석(Hybrid Single-Particle Lagrangian Integrated Trajectory, HYSPLIT)과 기상 자료를 결합하여 미세먼지의 외부 유입 경로를 파악합니다. 수도권에서 배출된 오염물질이 풍하지역으로 이동하면서 나타나는 농도 변화와 성분 변환을 추적하고, 국외 장거리 이동의 영향을 정량합니다.</p>
         <div class="research-figure">
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 HYSPLIT 역궤적 지도</div>
-            <div class="fig-caption">미세먼지 외부 유입 경로 분석</div>
-          </div>
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 수도권-풍하지역 농도 비교</div>
-            <div class="fig-caption">장거리 이동에 따른 농도 변화 및 성분 변환</div>
-          </div>
+          <div class="fig-box"><div class="fig-placeholder">📷 HYSPLIT 역궤적 지도</div><div class="fig-caption">미세먼지 외부 유입 경로 분석</div></div>
+          <div class="fig-box"><div class="fig-placeholder">📷 수도권-풍하지역 농도 비교</div><div class="fig-caption">장거리 이동에 따른 농도 변화 및 성분 변환</div></div>
         </div>
 
         <h3>건강 위해성 평가</h3>
         <p>미세먼지 중 발암성 물질을 포함한 유해 유기성분에 대해 건강 위해성 평가(Health Risk Assessment)를 수행합니다. 흡입 노출에 따른 초과 발암 위험도(Excess Cancer Risk)를 산정하고, 도시와 배경 지역 간 위해도 차이를 비교합니다. 배출원별 기여를 반영하여 위해성 관리의 우선순위를 제시합니다.</p>
         <div class="research-figure">
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 건강 위해성 평가 결과</div>
-            <div class="fig-caption">흡입 노출 기반 초과 발암 위험도 산정</div>
-          </div>
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 도시-배경 지역 간 위해도 비교</div>
-            <div class="fig-caption">배출원별 기여를 반영한 위해성 관리</div>
-          </div>
+          <div class="fig-box"><div class="fig-placeholder">📷 건강 위해성 평가 결과</div><div class="fig-caption">흡입 노출 기반 초과 발암 위험도 산정</div></div>
+          <div class="fig-box"><div class="fig-placeholder">📷 도시-배경 지역 간 위해도 비교</div><div class="fig-caption">배출원별 기여를 반영한 위해성 관리</div></div>
         </div>
 
         <h3>기후변화 유발 물질의 거동 특성</h3>
         <p>갈색탄소(Brown Carbon, BrC) 에어로졸의 광흡수 특성과 파장 의존성을 분석하여, 에어로졸이 대기 복사 수지(Radiative Budget)에 미치는 영향을 평가합니다. 대기오염 유발 물질과 기후변화 유발 물질이 대기 중에서 어떻게 상호작용하며 변환되는지를 규명하고, 대기오염 저감 정책과 기후변화 대응 전략을 통합적으로 연결하는 연구를 수행합니다.</p>
         <div class="research-figure">
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 갈색탄소 광흡수 스펙트럼</div>
-            <div class="fig-caption">BrC 에어로졸의 광학 특성 분석</div>
-          </div>
-          <div class="fig-box">
-            <div class="fig-placeholder">📷 대기오염-기후변화 연계 모식도</div>
-            <div class="fig-caption">대기오염 유발 물질과 기후변화 유발 물질의 상호 거동</div>
-          </div>
+          <div class="fig-box"><div class="fig-placeholder">📷 갈색탄소 광흡수 스펙트럼</div><div class="fig-caption">BrC 에어로졸의 광학 특성 분석</div></div>
+          <div class="fig-box"><div class="fig-placeholder">📷 대기오염-기후변화 연계 모식도</div><div class="fig-caption">대기오염 유발 물질과 기후변화 유발 물질의 상호 거동</div></div>
         </div>
 
         <div class="keyword-list">
@@ -438,8 +414,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
         </div>
       </div>
 
-      <div class="research-section">
-        <h2>학력</h2>
+      <div class="research-section"><h2>학력</h2>
         <table class="prof-table" style="max-width:760px;">
           <tr><th>박사</th><td>이화여자대학교 환경공학과 (2017–2021)<div class="sub">지도교수: 김용표</div></td></tr>
           <tr><th>석사</th><td>이화여자대학교 환경공학과 (2014–2016)<div class="sub">지도교수: 김용표</div></td></tr>
@@ -447,8 +422,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
         </table>
       </div>
 
-      <div class="research-section">
-        <h2>경력</h2>
+      <div class="research-section"><h2>경력</h2>
         <table class="prof-table">
           <tr><th>2023–현재</th><td>강원대학교 환경공학전공 조교수</td></tr>
           <tr><th>2021–2023</th><td>Georgia Institute of Technology, School of Chemical &amp; Biomolecular Engineering, Postdoc<div class="sub">Supervisor: Nga Lee (Sally) Ng (currently at Caltech)</div></td></tr>
@@ -456,8 +430,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
         </table>
       </div>
 
-      <div class="research-section">
-        <h2>수상 및 장학</h2>
+      <div class="research-section"><h2>수상 및 장학</h2>
         <table class="prof-table" style="max-width:760px;">
           <tr><th>2021</th><td>우수학술상, 이화여자대학교</td></tr>
           <tr><th>2021</th><td>우수발표상, 한국입자에어로졸학회</td></tr>
@@ -472,16 +445,14 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
         </table>
       </div>
 
-      <div class="research-section">
-        <h2>기타 경험</h2>
+      <div class="research-section"><h2>기타 경험</h2>
         <table class="prof-table" style="max-width:760px;">
           <tr><th>2012.12–2013.02</th><td>ERM Korea 인턴 (2012 유럽 글로벌기업 해외인턴 사업)</td></tr>
           <tr><th>2011–2012</th><td>Ruhr University Bochum, Germany (교환학생)</td></tr>
         </table>
       </div>
 
-      <div class="research-section">
-        <h2>학술 활동 및 대외 봉사</h2>
+      <div class="research-section"><h2>학술 활동 및 대외 봉사</h2>
         <table class="service-table">
           <thead><tr><th>역할</th><th>소속</th><th>기간</th></tr></thead>
           <tbody>
@@ -536,21 +507,17 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
     <div class="main-content"><div class="research-section">
       <h2>모집 안내</h2>
       <p>강원대학교 대기환경연구실에서는 대기화학과 대기환경 연구에 관심 있는 연구원을 모집합니다.</p>
-
       <h3>모집 과정</h3>
       <table class="prof-table" style="max-width:680px;margin-top:12px;">
         <tr><th style="width:180px;">석·박사과정</th><td>Master's / Ph.D. Students</td></tr>
         <tr><th>학·석사통합과정</th><td>Integrated B.S.–M.S. Program</td></tr>
         <tr><th>학부연구생</th><td>Undergraduate Researchers</td></tr>
       </table>
-
       <p style="margin-top:24px;"><strong>연구 주제:</strong> 미세먼지 유기성분 분석, 이차 에어로졸 생성 메커니즘, 챔버실험, 수용모델/박스모델 기반 배출원 추적, 대기오염과 기후변화</p>
-      <p style="margin-top:10px;"><strong>지원 자격:</strong> 환경공학, 화학, 대기과학 또는 관련 분야 전공자 (관심과 열정이 있는 분이라면 누구나 환영합니다)</p>
+      <p style="margin-top:10px;"><strong>지원 자격:</strong> 환경공학, 화학, 대기과학 또는 관련 분야 전공자 (전공 무관, 관심과 열정이 있는 분이라면 누구나 환영합니다)</p>
       <p style="margin-top:10px;"><strong>문의:</strong> <a href="mailto:narae@kangwon.ac.kr">narae@kangwon.ac.kr</a> (최나래 교수)</p>
-
-      <!-- English version -->
       <div class="bilingual">
-        <h3 style="border-left-color:#4a8ec9;">Positions Available </h3>
+        <h3 style="border-left-color:#4a8ec9;">Positions Available (English)</h3>
         <p>The Atmospheric Environment Research Lab at Kangwon National University is seeking motivated researchers interested in atmospheric chemistry and air quality.</p>
         <p><strong>Open Positions:</strong> Master's / Ph.D. students, Integrated B.S.–M.S. students, and Undergraduate Researchers.</p>
         <p><strong>Research Topics:</strong> Organic component analysis of particulate matter, secondary organic aerosol formation mechanisms, chamber experiments, source apportionment using receptor models and box models, air pollution and climate change.</p>
@@ -568,6 +535,12 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
   <div class="content-area">
     <aside class="sidebar"><h3>Publication</h3><ul><li><a href="#" class="active">Publication</a></li></ul></aside>
     <div class="main-content">
+
+      <a class="scholar-link" href="https://scholar.google.com/citations?user=pfqCXowAAAAJ&hl=ko" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+        Google Scholar 바로가기
+      </a>
+
       <div class="pub-year">2026</div>
       <div class="pub-entry"><strong>Choi, N. R.</strong>, Kim, Y. P., Lee, J. Y., Kim, E., Kim, S., Song, M., Lee, T., Park, J.-S., Seo, S.-J., Lee, K., and Shin, H. J.: Wintertime source attribution and health risk assessment of particulate Nitro(so) compounds at urban and background sites in Republic of Korea, <em>Atmospheric Environment</em>, 373, 2026.</div>
       <div class="pub-entry">Jung, D., Song, J., Kim, K., Kang, S., Kim, Y., Hong, S.-C., Lee, J.-B., Seo, S.-J., Lee, K., Park, J.-S., Song, M. J., <strong>Choi, N. R.</strong>, Lee, T.: Spatial and Seasonal Variation of Nitric Acid (HNO₃) and Understanding the Formation of NH₄NO₃ in the HNO₃–NH₃ system in Korea, <em>Aerosol and Air Quality Research</em>, 2026.</div>
@@ -617,11 +590,46 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
       <li><a href="#" onclick="showPage('activities');return false;">Activities</a></li>
     </ul></aside>
     <div class="main-content"><div class="research-section"><h2>Notice</h2>
-      <div class="home-panel" style="margin-top:0;"><ul>
-        <li><a href="#" onclick="showPage('member-positions');return false;"><span class="badge-new">NEW</span>대학원생 및 학부연구생 모집</a><span class="date">2026.03</span></li>
-        <li><a href="#">연구실 홈페이지 오픈</a><span class="date">2026.03</span></li>
-        <li><a href="#">논문 및 프로젝트 정보 업데이트 예정</a><span class="date">2026.03</span></li>
-      </ul></div>
+      <ul class="notice-list">
+
+        <li class="notice-item">
+          <div class="notice-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="notice-title"><span class="badge-new">NEW</span>대학원생 및 학부연구생 모집</div>
+            <span class="notice-date">2026.03</span>
+            <span class="notice-arrow">▶</span>
+          </div>
+          <div class="notice-body">
+            <p>강원대학교 대기환경연구실에서는 대기화학과 대기환경 연구에 관심 있는 <strong>석·박사과정, 학·석사통합과정 대학원생</strong>과 <strong>학부연구생</strong>을 모집합니다.</p>
+            <p style="margin-top:12px;"><strong>연구 주제:</strong> 미세먼지 유기성분 분석, 이차 에어로졸 생성 메커니즘, 챔버실험, 수용모델/박스모델 기반 배출원 추적, 대기오염과 기후변화</p>
+            <p style="margin-top:8px;"><strong>지원 자격:</strong> 환경공학, 화학, 대기과학 또는 관련 분야 전공자 (전공 무관, 관심과 열정이 있는 분이라면 누구나 환영합니다)</p>
+            <p style="margin-top:8px;"><strong>문의:</strong> <a href="mailto:narae@kangwon.ac.kr">narae@kangwon.ac.kr</a> (최나래 교수)</p>
+            <p style="margin-top:12px;color:#888;font-size:0.9rem;">자세한 내용은 <a href="#" onclick="showPage('member-positions');return false;" style="color:#2a7abf;">Positions Available</a> 페이지를 참고해 주세요.</p>
+          </div>
+        </li>
+
+        <li class="notice-item">
+          <div class="notice-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="notice-title">연구실 홈페이지 오픈</div>
+            <span class="notice-date">2026.03</span>
+            <span class="notice-arrow">▶</span>
+          </div>
+          <div class="notice-body">
+            <p>강원대학교 대기환경연구실 홈페이지가 새롭게 오픈되었습니다. 연구 분야, 구성원, 논문 목록, 공지사항 등의 정보를 확인하실 수 있습니다. 지속적으로 내용을 업데이트할 예정입니다.</p>
+          </div>
+        </li>
+
+        <li class="notice-item">
+          <div class="notice-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="notice-title">논문 및 프로젝트 정보 업데이트 예정</div>
+            <span class="notice-date">2026.03</span>
+            <span class="notice-arrow">▶</span>
+          </div>
+          <div class="notice-body">
+            <p>연구 프로젝트 현황과 최신 논문 정보를 순차적으로 업데이트할 예정입니다.</p>
+          </div>
+        </li>
+
+      </ul>
     </div></div>
   </div>
 </div>
@@ -636,11 +644,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
       <li><a href="#" onclick="showPage('activities');return false;" class="active">Activities</a></li>
     </ul></aside>
     <div class="main-content"><div class="research-section"><h2>Activities</h2>
-      <div class="home-panel" style="margin-top:0;"><ul>
-        <li><a href="#"><span class="badge-new">NEW</span>EGU General Assembly 2026 (Vienna) 참가 예정</a><span class="date">2026.05</span></li>
-        <li><a href="#">Atmospheric Environment 논문 게재 (2026)</a><span class="date">2026.02</span></li>
-        <li><a href="#">한국대기환경학회 정기학술대회 발표</a><span class="date">2025.11</span></li>
-      </ul></div>
+      <p style="color:#999;font-size:0.94rem;padding:20px 0;">게시물이 없습니다.</p>
     </div></div>
   </div>
 </div>
@@ -651,18 +655,27 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
   <div class="breadcrumb"><div class="wrap">HOME <span>›</span> Contact</div></div>
   <div class="content-area">
     <aside class="sidebar"><h3>Contact</h3><ul><li><a href="#" class="active">Contact</a></li></ul></aside>
-    <div class="main-content"><div class="research-section">
-      <h2>연락처</h2>
-      <dl class="contact-info">
-        <dt>교수</dt><dd>최나래 (Narae Choi)</dd>
-        <dt>소속</dt><dd>강원대학교 환경공학전공</dd>
-        <dt>전화</dt><dd>033-250-6353</dd>
-        <dt>이메일</dt><dd><a href="mailto:narae@kangwon.ac.kr">narae@kangwon.ac.kr</a></dd>
-        <dt>연구실</dt><dd>공학대학 5호관 412호 (대기환경연구실)</dd>
-        <dt>사무실</dt><dd>공학대학 5호관 417호</dd>
-        <dt>주소</dt><dd>(24341) 강원특별자치도 춘천시 강원대학길 1 공학대학 5호관</dd>
-      </dl>
-    </div></div>
+    <div class="main-content">
+      <div class="research-section">
+        <h2>연락처</h2>
+        <dl class="contact-info">
+          <dt>교수</dt><dd>최나래 (Narae Choi)</dd>
+          <dt>소속</dt><dd>강원대학교 환경공학전공</dd>
+          <dt>전화</dt><dd>033-250-6353</dd>
+          <dt>이메일</dt><dd><a href="mailto:narae@kangwon.ac.kr">narae@kangwon.ac.kr</a></dd>
+          <dt>연구실</dt><dd>공학대학 5호관 412호 (대기환경연구실)</dd>
+          <dt>사무실</dt><dd>공학대학 5호관 417호</dd>
+          <dt>주소</dt><dd>(24341) 강원특별자치도 춘천시 강원대학길 1 공학대학 5호관</dd>
+        </dl>
+      </div>
+      <div class="research-section">
+        <h2>찾아오는 길</h2>
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3148.835!2d127.7423!3d37.8685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3562e5e78d5e5b8d%3A0x3aae5fb8e0ad5d62!2z6rCV7JuQ64yA7ZWZ6rWQIOqzteunreuMgO2VmQ!5e0!3m2!1sko!2skr!4v1711000000000!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p style="margin-top:14px;font-size:0.92rem;color:#666;">강원특별자치도 춘천시 강원대학길 1 공학대학 5호관 (우 24341)</p>
+      </div>
+    </div>
   </div>
 </div>
 
