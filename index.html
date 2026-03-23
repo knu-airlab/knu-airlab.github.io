@@ -6,7 +6,7 @@
 <title>강원대학교 대기환경연구실 | Atmospheric Environment Research Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Raleway:wght@200;300;400;500;600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -20,38 +20,47 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .util-bar .right-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;}
 .util-bar .right-links a:hover{color:#fff;}
 
-.site-header{background:#fff;border-bottom:1px solid #ddd;padding:0;}
+.site-header{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:0;position:sticky;top:0;z-index:100;transition:box-shadow .3s;}
+.site-header.scrolled{box-shadow:0 2px 24px rgba(0,30,60,0.08);}
 .site-header .wrap{max-width:1260px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:90px;}
 .header-left{display:flex;align-items:center;gap:18px;text-decoration:none;cursor:pointer;}
 .header-left img{height:52px;width:auto;}
 .header-text{display:flex;flex-direction:column;line-height:1.25;}
-.header-text .en-name{font-family:'Source Sans 3',sans-serif;font-weight:600;font-size:1.25rem;color:#2a7abf;letter-spacing:0.01em;}
-.header-text .ko-name{font-family:'Nanum Gothic',sans-serif;font-weight:800;font-size:1.15rem;color:#333;margin-top:2px;}
+.header-text .en-name{font-family:'Raleway',sans-serif;font-weight:500;font-size:1.2rem;color:#3d6e8e;letter-spacing:0.03em;}
+.header-text .ko-name{font-family:'Nanum Gothic',sans-serif;font-weight:800;font-size:1.1rem;color:#2c4a5e;margin-top:2px;}
 .main-nav{display:flex;gap:0;align-items:center;}
 .nav-item{position:relative;}
 .nav-item>a{display:flex;align-items:center;height:90px;padding:0 26px;color:#333;font-size:0.95rem;font-weight:700;text-decoration:none;transition:color .2s;}
 .nav-item>a:hover,.nav-item>a.active{color:#2a7abf;}
-.nav-item .sub-menu{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:220px;box-shadow:0 4px 16px rgba(0,0,0,0.12);border-top:3px solid #2a7abf;z-index:200;}
+.nav-item .sub-menu{display:none;position:absolute;top:100%;left:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);min-width:220px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border-top:3px solid #2a7abf;border-radius:0 0 8px 8px;z-index:200;}
 .nav-item:hover .sub-menu{display:block;}
 .sub-menu a{display:block;padding:12px 22px;font-size:0.9rem;color:#444;text-decoration:none;border-bottom:1px solid #f0f0f0;transition:all .15s;}
 .sub-menu a:hover{background:#f0f6fc;color:#2a7abf;padding-left:26px;}
 .mobile-toggle{display:none;background:none;border:none;font-size:1.6rem;color:#333;cursor:pointer;}
 
-.home-hero{position:relative;min-height:520px;display:flex;align-items:center;overflow:hidden;color:#fff;}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease-in-out;}
-.hero-slide.active{opacity:1;}
-.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,30,60,0.75) 0%,rgba(20,60,100,0.6) 50%,rgba(30,90,150,0.5) 100%);}
-.home-hero .wrap{max-width:1260px;margin:0 auto;padding:60px 28px;position:relative;z-index:2;}
-.home-dept{font-family:'Source Sans 3',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.55);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;}
-.home-hero h1{font-family:'Source Sans 3',sans-serif;font-size:2.8rem;font-weight:700;line-height:1.3;margin-bottom:8px;}
-.home-hero .ko-title{font-size:1.5rem;font-weight:800;color:rgba(255,255,255,0.9);margin-bottom:28px;}
-.home-hero p{font-size:1.05rem;line-height:1.9;color:rgba(255,255,255,0.85);max-width:720px;}
-.home-hero p.en-intro{font-family:'Source Sans 3',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.65);margin-top:18px;line-height:1.8;}
+.home-hero{position:relative;min-height:600px;display:flex;align-items:center;overflow:hidden;color:#fff;}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 2s ease-in-out;transform:scale(1.05);}
+.hero-slide.active{opacity:1;transform:scale(1);transition:opacity 2s ease-in-out,transform 8s ease-out;}
+.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,18,42,0.88) 0%,rgba(10,45,85,0.72) 40%,rgba(20,70,130,0.55) 100%);}
+.hero-particles{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;}
+.hero-particle{position:absolute;width:3px;height:3px;background:rgba(255,255,255,0.25);border-radius:50%;animation:floatUp linear infinite;}
+@keyframes floatUp{0%{transform:translateY(0) translateX(0);opacity:0;}10%{opacity:1;}90%{opacity:1;}100%{transform:translateY(-600px) translateX(40px);opacity:0;}}
+.home-hero .wrap{max-width:1260px;margin:0 auto;padding:80px 28px;position:relative;z-index:2;}
+.hero-accent{width:48px;height:3px;background:linear-gradient(90deg,#4a9eda,#7ec8e3);border-radius:2px;margin-bottom:20px;animation:heroFadeIn 0.8s ease-out 0.2s both;}
+.home-dept{font-family:'Raleway',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.4);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;font-weight:400;animation:heroFadeIn 0.8s ease-out 0.3s both;}
+.home-hero h1{font-family:'Raleway',sans-serif;font-size:3.4rem;font-weight:300;line-height:1.2;margin-bottom:6px;letter-spacing:0.02em;animation:heroFadeIn 0.8s ease-out 0.4s both;background:linear-gradient(135deg,#ffffff 0%,#c8dff0 50%,#ffffff 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.home-hero .ko-title{font-size:1.45rem;font-weight:800;color:rgba(255,255,255,0.85);margin-bottom:32px;animation:heroFadeIn 0.8s ease-out 0.5s both;}
+.home-hero p{font-size:1rem;line-height:2;color:rgba(255,255,255,0.75);max-width:720px;animation:heroFadeIn 0.8s ease-out 0.6s both;}
+.home-hero p.en-intro{font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:rgba(255,255,255,0.45);margin-top:20px;line-height:1.85;animation:heroFadeIn 0.8s ease-out 0.7s both;border-left:2px solid rgba(255,255,255,0.15);padding-left:18px;}
+@keyframes heroFadeIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 .home-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border-bottom:1px solid #e0e0e0;}
-.home-box{padding:28px 20px;text-align:center;border-right:1px solid #e8e8e8;cursor:pointer;transition:background .2s;}
+.home-box{padding:28px 20px;text-align:center;border-right:1px solid #e8e8e8;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
+.home-box::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:linear-gradient(90deg,#2a7abf,#4a9eda);transition:all .3s;transform:translateX(-50%);}
+.home-box:hover::after{width:60%;}
 .home-box:last-child{border-right:none;}
 .home-box:hover{background:#f0f5fa;}
-.home-box .box-title{font-size:0.88rem;font-weight:800;color:#003366;text-transform:uppercase;letter-spacing:0.04em;}
+.home-box .box-title{font-size:0.88rem;font-weight:800;color:#003366;text-transform:uppercase;letter-spacing:0.06em;transition:color .3s;}
+.home-box:hover .box-title{color:#2a7abf;}
 .home-panels{max-width:1260px;margin:0 auto;padding:48px 28px 70px;display:grid;grid-template-columns:1fr 1fr;gap:48px;}
 .home-panel h2{font-size:1.1rem;font-weight:800;color:#003366;padding-bottom:12px;border-bottom:2px solid #003366;margin-bottom:18px;}
 .home-panel ul{list-style:none;}
@@ -200,7 +209,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 }
 @media(max-width:600px){
   .home-hero h1{font-size:1.9rem;}
-  .home-hero{min-height:400px;}
+  .home-hero{min-height:450px;}
   .home-boxes{grid-template-columns:1fr;}
   .header-left img{height:40px;}
 }
@@ -262,7 +271,9 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
     <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80')"></div>
     <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=1400&q=80')"></div>
     <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1581093458791-9d42cc050e4b?w=1400&q=80')"></div>
+    <div class="hero-particles" id="heroParticles"></div>
     <div class="wrap">
+      <div class="hero-accent"></div>
       <div class="home-dept">Department of Environmental Engineering, Kangwon National University</div>
       <h1>Atmospheric Environment<br/>Research Lab</h1>
       <div class="ko-title">강원대학교 대기환경연구실</div>
@@ -841,8 +852,31 @@ function showPage(id){
     slides[cur].classList.remove('active');
     cur=(cur+1)%slides.length;
     slides[cur].classList.add('active');
-  },5000);
+  },6000);
 })();
+
+// Floating particles
+(function(){
+  const container=document.getElementById('heroParticles');
+  if(!container)return;
+  for(let i=0;i<25;i++){
+    const p=document.createElement('div');
+    p.className='hero-particle';
+    p.style.left=Math.random()*100+'%';
+    p.style.top=(60+Math.random()*40)+'%';
+    p.style.width=p.style.height=(1.5+Math.random()*2.5)+'px';
+    p.style.animationDuration=(6+Math.random()*10)+'s';
+    p.style.animationDelay=(Math.random()*8)+'s';
+    p.style.opacity=0.15+Math.random()*0.3;
+    container.appendChild(p);
+  }
+})();
+
+// Sticky header shadow on scroll
+window.addEventListener('scroll',()=>{
+  const h=document.querySelector('.site-header');
+  if(h)h.classList.toggle('scrolled',window.scrollY>10);
+});
 </script>
 </body>
 </html>
