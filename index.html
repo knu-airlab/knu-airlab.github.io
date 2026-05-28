@@ -6,7 +6,7 @@
 <title>강원대학교 대기환경연구실 | Atmospheric Environment Research Lab</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Raleway:wght@200;300;400;500;600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -30,7 +30,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .header-divider{width:1px;height:38px;background:linear-gradient(180deg,transparent,rgba(0,45,95,0.16),transparent);flex-shrink:0;}
 .header-text{display:flex;flex-direction:column;line-height:1.25;}
 .header-text .ko-name{font-family:'Nanum Gothic',sans-serif;font-weight:800;font-size:1.2rem;color:#13344c;letter-spacing:-0.01em;}
-.header-text .en-name{font-family:'Raleway',sans-serif;font-weight:600;font-size:0.63rem;color:#5f7e95;letter-spacing:0.14em;text-transform:uppercase;margin-top:4px;}
+.header-text .en-name{font-family:Arial,'Helvetica Neue',sans-serif;font-weight:600;font-size:0.63rem;color:#5f7e95;letter-spacing:0.05em;text-transform:uppercase;margin-top:4px;}
 .main-nav{display:flex;gap:0;align-items:center;}
 .nav-item{position:relative;}
 .nav-item>a{display:flex;align-items:center;height:90px;padding:0 26px;color:#333;font-size:0.95rem;font-weight:700;text-decoration:none;transition:color .2s;}
@@ -49,12 +49,16 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .hero-particle{position:absolute;width:3px;height:3px;background:rgba(255,255,255,0.25);border-radius:50%;animation:floatUp linear infinite;}
 @keyframes floatUp{0%{transform:translateY(0) translateX(0);opacity:0;}10%{opacity:1;}90%{opacity:1;}100%{transform:translateY(-600px) translateX(40px);opacity:0;}}
 .home-hero .wrap{max-width:1260px;margin:0 auto;padding:80px 28px;position:relative;z-index:2;}
+.hero-flex{display:flex;align-items:center;gap:54px;}
+.hero-copy{flex:1;min-width:0;}
+.hero-mascot{flex-shrink:0;width:340px;animation:heroFadeIn 0.9s ease-out 0.5s both;}
+.hero-mascot img{width:100%;height:auto;display:block;border-radius:24px;background:#fff;box-shadow:0 24px 60px rgba(0,15,40,0.4);border:5px solid rgba(255,255,255,0.9);}
 .hero-accent{width:48px;height:3px;background:linear-gradient(90deg,#4a9eda,#7ec8e3);border-radius:2px;margin-bottom:20px;animation:heroFadeIn 0.8s ease-out 0.2s both;}
-.home-dept{font-family:'Raleway',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.4);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px;font-weight:400;animation:heroFadeIn 0.8s ease-out 0.3s both;}
-.home-hero h1{font-family:'Raleway',sans-serif;font-size:3.4rem;font-weight:300;line-height:1.2;margin-bottom:6px;letter-spacing:0.02em;animation:heroFadeIn 0.8s ease-out 0.4s both;background:linear-gradient(135deg,#ffffff 0%,#c8dff0 50%,#ffffff 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.home-hero .ko-title{font-size:1.45rem;font-weight:800;color:rgba(255,255,255,0.85);margin-bottom:32px;animation:heroFadeIn 0.8s ease-out 0.5s both;}
-.home-hero p{font-size:1rem;line-height:2;color:rgba(255,255,255,0.75);max-width:720px;animation:heroFadeIn 0.8s ease-out 0.6s both;}
-.home-hero p.en-intro{font-family:'Source Sans 3',sans-serif;font-size:0.92rem;color:rgba(255,255,255,0.45);margin-top:20px;line-height:1.85;animation:heroFadeIn 0.8s ease-out 0.7s both;border-left:2px solid rgba(255,255,255,0.15);padding-left:18px;}
+.home-dept{font-family:Arial,'Helvetica Neue',sans-serif;font-size:0.82rem;color:rgba(255,255,255,0.45);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px;font-weight:700;animation:heroFadeIn 0.8s ease-out 0.3s both;}
+.home-hero h1{font-family:Arial,'Helvetica Neue',sans-serif;font-size:3.2rem;font-weight:700;line-height:1.12;margin-bottom:8px;letter-spacing:-0.01em;animation:heroFadeIn 0.8s ease-out 0.4s both;background:linear-gradient(135deg,#ffffff 0%,#c8dff0 50%,#ffffff 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.home-hero .ko-title{font-size:1.45rem;font-weight:800;color:rgba(255,255,255,0.88);margin-bottom:32px;animation:heroFadeIn 0.8s ease-out 0.5s both;}
+.home-hero p{font-size:1rem;line-height:2;color:rgba(255,255,255,0.78);max-width:640px;animation:heroFadeIn 0.8s ease-out 0.6s both;}
+.home-hero p.en-intro{font-family:Arial,'Helvetica Neue',sans-serif;font-size:0.9rem;color:rgba(255,255,255,0.5);margin-top:20px;line-height:1.8;animation:heroFadeIn 0.8s ease-out 0.7s both;border-left:2px solid rgba(255,255,255,0.18);padding-left:18px;max-width:640px;}
 @keyframes heroFadeIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 .home-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border-bottom:1px solid #e0e0e0;}
 .home-box{padding:28px 20px;text-align:center;border-right:1px solid #e8e8e8;cursor:pointer;transition:all .3s;position:relative;overflow:hidden;}
@@ -77,7 +81,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .page-banner::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M20 20h20v20H20z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
 .page-banner .wrap{max-width:1260px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
 .page-banner h1{font-size:2rem;font-weight:800;margin-bottom:4px;}
-.page-banner .en-title{font-family:'Source Sans 3',sans-serif;font-size:1.05rem;font-weight:400;color:rgba(255,255,255,0.7);}
+.page-banner .en-title{font-family:Arial,'Helvetica Neue',sans-serif;font-size:1.05rem;font-weight:400;color:rgba(255,255,255,0.7);}
 .breadcrumb{background:#f8f9fa;border-bottom:1px solid #e8e8e8;padding:11px 0;font-size:0.82rem;color:#888;}
 .breadcrumb .wrap{max-width:1260px;margin:0 auto;padding:0 28px;}
 .breadcrumb span{margin:0 6px;color:#ccc;}
@@ -95,7 +99,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .prof-photo img{width:100%;height:100%;object-fit:cover;}
 .prof-info{flex:1;min-width:0;}
 .prof-info h2{font-size:1.45rem;font-weight:800;color:#003366;margin-bottom:4px;}
-.prof-info .en{font-family:'Source Sans 3',sans-serif;color:#666;font-size:0.95rem;margin-bottom:14px;}
+.prof-info .en{font-family:Arial,'Helvetica Neue',sans-serif;color:#666;font-size:0.95rem;margin-bottom:14px;}
 .prof-table{width:100%;border-collapse:collapse;font-size:0.95rem;}
 .prof-table th{text-align:left;padding:10px 14px;background:#f5f7fa;color:#003366;font-weight:700;width:140px;border-bottom:1px solid #e8e8e8;white-space:nowrap;}
 .prof-table td{padding:10px 14px;border-bottom:1px solid #e8e8e8;color:#444;}
@@ -147,7 +151,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .service-table tr:hover{background:#f8fafc;}
 
 .bilingual{margin-top:28px;padding-top:28px;border-top:1px solid #e8e8e8;}
-.bilingual p{font-family:'Source Sans 3',sans-serif;color:#555;font-size:0.95rem;line-height:1.85;}
+.bilingual p{font-family:Arial,'Helvetica Neue',sans-serif;color:#555;font-size:0.95rem;line-height:1.85;}
 
 .notice-list{list-style:none;}
 .notice-item{border-bottom:1px solid #f0f0f0;}
@@ -207,12 +211,15 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
   .prof-card{flex-direction:column;align-items:center;text-align:center;}
   .home-panels{grid-template-columns:1fr;}
   .home-boxes{grid-template-columns:repeat(2,1fr);}
+  .hero-flex{flex-direction:column;align-items:flex-start;gap:36px;}
+  .hero-mascot{width:260px;align-self:center;}
   .site-footer .wrap{flex-direction:column;}
   .research-figure{grid-template-columns:1fr;}
 }
 @media(max-width:600px){
   .home-hero h1{font-size:1.9rem;}
   .home-hero{min-height:450px;}
+  .hero-mascot{width:200px;}
   .home-boxes{grid-template-columns:1fr;}
   .logo-tile{height:46px;width:46px;border-radius:10px;}
   .header-divider{height:32px;}
@@ -230,36 +237,36 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .header-left:hover .logo-tile{box-shadow:none;}
 
 /* Research Focus section */
-.section-eyebrow{font-family:'Raleway',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:0.72rem;font-weight:600;color:var(--blue);margin-bottom:10px;}
-.home-focus{background:linear-gradient(180deg,#f7fafd 0%,#edf3fa 100%);border-top:1px solid #eef3f8;border-bottom:1px solid #e6eef6;padding:74px 0;}
+.section-eyebrow{font-family:Arial,'Helvetica Neue',sans-serif;text-transform:uppercase;letter-spacing:0.1em;font-size:0.8rem;font-weight:700;color:var(--blue);margin-bottom:12px;}
+.home-focus{background:linear-gradient(180deg,#f7fafd 0%,#edf3fa 100%);border-top:1px solid #eef3f8;border-bottom:1px solid #e6eef6;padding:84px 0;}
 .focus-inner{max-width:1260px;margin:0 auto;padding:0 28px;}
-.section-head{font-size:1.95rem;font-weight:800;color:var(--navy);letter-spacing:-0.015em;margin-bottom:12px;}
-.section-sub{font-size:1rem;color:#52677a;max-width:700px;line-height:1.85;margin-bottom:42px;}
-.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.focus-card{background:#fff;border:1px solid #e6eef6;border-radius:16px;padding:34px 30px;cursor:pointer;position:relative;overflow:hidden;transition:transform .32s cubic-bezier(.2,.7,.3,1),box-shadow .32s,border-color .32s;box-shadow:0 1px 3px rgba(10,40,70,0.05);}
-.focus-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),#5aa6e0);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
-.focus-card:hover{transform:translateY(-7px);box-shadow:0 20px 44px rgba(10,40,80,0.14);border-color:#d2e3f2;}
+.section-head{font-size:2.3rem;font-weight:800;color:var(--navy);letter-spacing:-0.02em;margin-bottom:14px;}
+.section-sub{font-size:1.06rem;color:#52677a;max-width:720px;line-height:1.85;margin-bottom:48px;}
+.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.focus-card{background:#fff;border:1px solid #e6eef6;border-radius:18px;padding:42px 36px;cursor:pointer;position:relative;overflow:hidden;transition:transform .32s cubic-bezier(.2,.7,.3,1),box-shadow .32s,border-color .32s;box-shadow:0 1px 3px rgba(10,40,70,0.05);}
+.focus-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--navy),#5aa6e0);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+.focus-card:hover{transform:translateY(-8px);box-shadow:0 22px 48px rgba(10,40,80,0.15);border-color:#d2e3f2;}
 .focus-card:hover::before{transform:scaleX(1);}
-.focus-ic{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#eaf3fb,#dceaf7);display:flex;align-items:center;justify-content:center;color:var(--blue-d);margin-bottom:20px;transition:background .32s,color .32s,transform .32s;}
-.focus-card:hover .focus-ic{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;transform:scale(1.05);}
-.focus-ic svg{width:26px;height:26px;}
-.focus-card h3{font-size:1.12rem;font-weight:800;color:var(--navy);margin-bottom:3px;}
-.focus-en{font-family:'Raleway',sans-serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:#9aabb9;font-weight:600;margin-bottom:14px;}
-.focus-card p{font-size:0.9rem;color:#5b6f80;line-height:1.7;margin-bottom:16px;}
-.focus-link{font-size:0.84rem;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:4px;transition:gap .25s,color .25s;}
-.focus-card:hover .focus-link{gap:9px;color:var(--navy);}
+.focus-ic{width:74px;height:74px;border-radius:20px;background:linear-gradient(135deg,#eaf3fb,#dceaf7);display:flex;align-items:center;justify-content:center;color:var(--blue-d);margin-bottom:24px;transition:background .32s,color .32s,transform .32s;box-shadow:inset 0 0 0 1px rgba(42,122,191,0.08);}
+.focus-card:hover .focus-ic{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;transform:scale(1.06) rotate(-3deg);}
+.focus-ic svg{width:40px;height:40px;}
+.focus-card h3{font-size:1.34rem;font-weight:800;color:var(--navy);margin-bottom:4px;letter-spacing:-0.01em;}
+.focus-en{font-family:Arial,'Helvetica Neue',sans-serif;font-size:0.74rem;letter-spacing:0.05em;text-transform:uppercase;color:#9aabb9;font-weight:700;margin-bottom:16px;}
+.focus-card p{font-size:0.99rem;color:#5b6f80;line-height:1.75;margin-bottom:20px;}
+.focus-link{font-size:0.94rem;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:5px;transition:gap .25s,color .25s;}
+.focus-card:hover .focus-link{gap:10px;color:var(--navy);}
 
 /* Quick-link boxes -> cards with icons */
-.home-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1260px;margin:0 auto;padding:56px 28px;border-bottom:none;background:transparent;}
-.home-box{background:#fff;border:1px solid #e9eef4;border-radius:14px;padding:30px 22px;text-align:center;cursor:pointer;transition:transform .28s,box-shadow .28s,border-color .28s;box-shadow:0 1px 3px rgba(10,40,70,0.05);}
+.home-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1260px;margin:0 auto;padding:64px 28px;border-bottom:none;background:transparent;}
+.home-box{background:#fff;border:1px solid #e9eef4;border-radius:16px;padding:40px 24px;text-align:center;cursor:pointer;transition:transform .28s,box-shadow .28s,border-color .28s;box-shadow:0 1px 3px rgba(10,40,70,0.05);}
 .home-box::after{display:none;}
-.home-box:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(10,40,80,0.12);border-color:#d2e3f2;background:#fff;}
-.box-ic{width:46px;height:46px;margin:0 auto 14px;border-radius:12px;background:linear-gradient(135deg,#eef5fc,#e0edf9);display:flex;align-items:center;justify-content:center;color:var(--blue-d);transition:background .28s,color .28s,transform .28s;}
-.home-box:hover .box-ic{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;transform:scale(1.07);}
-.box-ic svg{width:23px;height:23px;}
-.home-box .box-title{font-size:0.96rem;font-weight:800;color:var(--navy);letter-spacing:0.01em;text-transform:none;}
+.home-box:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(10,40,80,0.13);border-color:#d2e3f2;background:#fff;}
+.box-ic{width:62px;height:62px;margin:0 auto 16px;border-radius:17px;background:linear-gradient(135deg,#eef5fc,#e0edf9);display:flex;align-items:center;justify-content:center;color:var(--blue-d);transition:background .28s,color .28s,transform .28s;box-shadow:inset 0 0 0 1px rgba(42,122,191,0.08);}
+.home-box:hover .box-ic{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;transform:scale(1.08) rotate(-3deg);}
+.box-ic svg{width:32px;height:32px;}
+.home-box .box-title{font-size:1.12rem;font-weight:800;color:var(--navy);letter-spacing:0.01em;text-transform:none;}
 .home-box:hover .box-title{color:var(--navy);}
-.box-sub{font-size:0.76rem;color:#94a4b2;margin-top:3px;font-family:'Raleway',sans-serif;letter-spacing:0.04em;}
+.box-sub{font-size:0.84rem;color:#94a4b2;margin-top:4px;font-family:'Nanum Gothic',sans-serif;letter-spacing:0;}
 .home-panels{padding-top:8px;}
 .home-panel li{transition:padding-left .2s,color .2s;}
 .home-panel li:hover{padding-left:4px;}
@@ -362,12 +369,19 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
     <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&q=80')"></div>
     <div class="hero-particles" id="heroParticles"></div>
     <div class="wrap">
-      <div class="hero-accent"></div>
-      <div class="home-dept">Department of Environmental Engineering, Kangwon National University</div>
-      <h1>Atmospheric Environment<br/>Research Lab</h1>
-      <div class="ko-title">강원대학교 대기환경연구실</div>
-      <p>대기 중 미세먼지의 화학 조성과 유기성분을 분석하고 오염물질의 발생 원인과 대기 중 거동을 추적합니다. 기기분석과 챔버실험, 수용모델 및 박스모델을 결합하여 대기오염물질의 건강 위해성을 평가합니다. 나아가 대기오염 유발 물질과 기후변화 유발 물질 간의 상호 거동 특성을 규명하여, 대기환경 개선과 기후변화 대응을 위한 과학적 기반을 마련합니다.</p>
-      <p class="en-intro">We investigate the chemical composition and organic constituents of atmospheric particulate matter, trace the origins and atmospheric behavior of pollutants, and assess their health risks. Our research further explores the interplay between air pollutants and climate-forcing species, providing a scientific basis for integrated air quality management and climate change mitigation.</p>
+      <div class="hero-flex">
+        <div class="hero-copy">
+          <div class="hero-accent"></div>
+          <div class="home-dept">Department of Environmental Engineering, Kangwon National University</div>
+          <h1>Atmospheric Environment<br/>Research Lab</h1>
+          <div class="ko-title">강원대학교 대기환경연구실</div>
+          <p>대기 중 미세먼지의 화학 조성과 유기성분을 분석하고 오염물질의 발생 원인과 대기 중 거동을 추적합니다. 기기분석과 챔버실험, 수용모델 및 박스모델을 결합하여 대기오염물질의 건강 위해성을 평가합니다. 나아가 대기오염 유발 물질과 기후변화 유발 물질 간의 상호 거동 특성을 규명하여, 대기환경 개선과 기후변화 대응을 위한 과학적 기반을 마련합니다.</p>
+          <p class="en-intro">We investigate the chemical composition and organic constituents of atmospheric particulate matter, trace the origins and atmospheric behavior of pollutants, and assess their health risks. Our research further explores the interplay between air pollutants and climate-forcing species, providing a scientific basis for integrated air quality management and climate change mitigation.</p>
+        </div>
+        <div class="hero-mascot">
+          <img src="https://knu-airlab.github.io/KNUair.png?v=1" alt="KNU Air 마스코트"/>
+        </div>
+      </div>
     </div>
   </div>
   <section class="home-focus">
@@ -377,21 +391,21 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
       <p class="section-sub">관측과 성분 분석에서 출발해 배출원을 추적하고, 대기질 변화와 건강·기후 영향까지 미세먼지 유기성분 연구의 전 과정을 다룹니다.</p>
       <div class="focus-grid">
         <article class="focus-card" onclick="showPage('research-observation')">
-          <div class="focus-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.2L5.2 18.6A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.3-2.4L14 9.2V3"/><path d="M7.6 15h8.8"/></svg></div>
+          <div class="focus-ic"><svg viewBox="0 0 48 48" fill="none"><circle cx="20" cy="20" r="13" fill="currentColor" fill-opacity="0.12"/><circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="2.6"/><line x1="29.7" y1="29.7" x2="40" y2="40" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><circle cx="16" cy="17" r="1.7" fill="currentColor"/><circle cx="23.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="19" cy="23.5" r="2" fill="currentColor"/><circle cx="25" cy="22" r="1.3" fill="currentColor"/></svg></div>
           <h3>관측과 성분 분석</h3>
           <div class="focus-en">Observation &amp; Analysis</div>
           <p>GC-MS/MS 기반 극미량 유기화합물 분석법을 개발하고, 미세먼지 속 유기질소성분을 정량합니다.</p>
           <span class="focus-link">자세히 보기 →</span>
         </article>
         <article class="focus-card" onclick="showPage('research-source')">
-          <div class="focus-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.3"/><circle cx="6" cy="18" r="2.3"/><circle cx="18" cy="12" r="2.3"/><path d="M8.1 7.1 15.7 11M8.1 16.9 15.7 13"/></svg></div>
+          <div class="focus-ic"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27.5h16l2.6 4.6a3.2 3.2 0 0 1-2.8 4.8H16.2a3.2 3.2 0 0 1-2.8-4.8z" fill="currentColor" fill-opacity="0.14"/><path d="M19 8h10" stroke="currentColor" stroke-width="2.6"/><path d="M22 8v9L13.4 32.1a3.2 3.2 0 0 0 2.8 4.8h15.6a3.2 3.2 0 0 0 2.8-4.8L26 17V8" stroke="currentColor" stroke-width="2.6"/><circle cx="22.5" cy="31.5" r="1.5" fill="currentColor"/><circle cx="27.5" cy="29.5" r="1.1" fill="currentColor"/><circle cx="24" cy="34.5" r="1" fill="currentColor"/></svg></div>
           <h3>배출원 추적과 반응</h3>
           <div class="focus-en">Source &amp; Process</div>
           <p>수용모델과 박스모델, 챔버실험으로 1차 배출과 2차 생성 기여를 구분하고 생성 경로를 규명합니다.</p>
           <span class="focus-link">자세히 보기 →</span>
         </article>
         <article class="focus-card" onclick="showPage('research-impact')">
-          <div class="focus-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5h9a3.4 3.4 0 0 0 .5-6.78A5 5 0 0 0 7 11.4 3.3 3.3 0 0 0 7 18.5Z"/><path d="M12 3v1.8M5.6 6.1l1.3 1.3M18.4 6.1l-1.3 1.3"/></svg></div>
+          <div class="focus-ic"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="21" cy="21" r="13" fill="currentColor" fill-opacity="0.12"/><circle cx="21" cy="21" r="13" stroke="currentColor" stroke-width="2.6"/><path d="M21 8c5.2 3.6 5.2 22.4 0 26M21 8c-5.2 3.6-5.2 22.4 0 26" stroke="currentColor" stroke-width="2"/><path d="M8.2 21h25.6" stroke="currentColor" stroke-width="2"/><path d="M34 30c4.2-.6 7.4 1.2 8.4 5.2-4.2.6-7.4-1.2-8.4-5.2z" fill="currentColor" fill-opacity="0.22" stroke="currentColor" stroke-width="2.2"/></svg></div>
           <h3>대기질과 기후 영향</h3>
           <div class="focus-en">Air Quality &amp; Climate</div>
           <p>장거리 이동과 건강 위해성을 평가하고, 갈색탄소의 광흡수 특성으로 기후 영향을 분석합니다.</p>
@@ -401,10 +415,10 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
     </div>
   </section>
   <div class="home-boxes">
-    <div class="home-box" onclick="showPage('notice')"><div class="box-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 4.5 1.4 5.5 1.4 5.5H4.6S6 13.5 6 9Z"/><path d="M10.4 19a1.7 1.7 0 0 0 3.2 0"/></svg></div><div class="box-title">Notice</div><div class="box-sub">공지사항</div></div>
-    <div class="home-box" onclick="showPage('research-observation')"><div class="box-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.1"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg></div><div class="box-title">Research</div><div class="box-sub">연구 분야</div></div>
-    <div class="home-box" onclick="showPage('publication')"><div class="box-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12.5h5M10 16h5"/></svg></div><div class="box-title">Publication</div><div class="box-sub">논문 목록</div></div>
-    <div class="home-box" onclick="showPage('news')"><div class="box-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h12v13H5.5A1.5 1.5 0 0 1 4 17.5Z"/><path d="M16 8.5h3.5V17a2 2 0 0 1-3.5 1.3"/><path d="M7 9.5h6M7 12.5h6M7 15.5h4"/></svg></div><div class="box-title">News</div><div class="box-sub">소식</div></div>
+    <div class="home-box" onclick="showPage('notice')"><div class="box-ic"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 30c2-2 2.5-4 2.5-9a9.5 9.5 0 0 1 19 0c0 5 .5 7 2.5 9z" fill="currentColor" fill-opacity="0.13" stroke="currentColor" stroke-width="2.6"/><path d="M10 30h28" stroke="currentColor" stroke-width="2.6"/><path d="M20.5 35a3.5 3.5 0 0 0 7 0" stroke="currentColor" stroke-width="2.6"/></svg></div><div class="box-title">Notice</div><div class="box-sub">공지사항</div></div>
+    <div class="home-box" onclick="showPage('research-observation')"><div class="box-ic"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="4" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="2.6"/><ellipse cx="24" cy="24" rx="17" ry="7.5" stroke="currentColor" stroke-width="2.4" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="17" ry="7.5" stroke="currentColor" stroke-width="2.4" transform="rotate(120 24 24)"/><ellipse cx="24" cy="24" rx="17" ry="7.5" stroke="currentColor" stroke-width="2.4"/></svg></div><div class="box-title">Research</div><div class="box-sub">연구 분야</div></div>
+    <div class="home-box" onclick="showPage('publication')"><div class="box-ic"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M13 6h14l8 8v28H13z" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2.6"/><path d="M27 6v8h8" stroke="currentColor" stroke-width="2.6"/><path d="M19 25h10M19 31h10M19 19h5" stroke="currentColor" stroke-width="2.6"/></svg></div><div class="box-title">Publication</div><div class="box-sub">논문 목록</div></div>
+    <div class="home-box" onclick="showPage('news')"><div class="box-ic"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h24v26H11a3 3 0 0 1-3-3z" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2.6"/><path d="M32 17h7v18a3 3 0 0 1-6 1" stroke="currentColor" stroke-width="2.6"/><path d="M13 19h12M13 25h12M13 31h8" stroke="currentColor" stroke-width="2.6"/></svg></div><div class="box-title">News</div><div class="box-sub">소식</div></div>
   </div>
   <div class="home-panels">
     <div class="home-panel"><h2>Notice</h2><ul>
