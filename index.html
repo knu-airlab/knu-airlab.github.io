@@ -12,13 +12,14 @@
 html{scroll-behavior:smooth;}
 body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-break:keep-all;overflow-wrap:break-word;background:#fff;font-size:15px;}
 
-.util-bar{background:#4a8ec9;padding:5px 0;font-size:0.78rem;}
-.util-bar .wrap{max-width:1260px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;}
-.util-bar .univ-link{color:#fff;text-decoration:none;font-weight:700;font-size:0.8rem;display:flex;align-items:center;gap:6px;}
-.util-bar .univ-link:hover{text-decoration:underline;}
-.util-bar .right-links{display:flex;gap:14px;}
-.util-bar .right-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.78rem;}
-.util-bar .right-links a:hover{color:#fff;}
+.util-bar{background:linear-gradient(100deg,#3f82c4 0%,#4a8ec9 50%,#5fa3d6 100%);padding:4px 0;font-size:0.82rem;box-shadow:inset 0 -1px 0 rgba(255,255,255,0.1);}
+.util-bar .wrap{max-width:1260px;margin:0 auto;padding:0 28px;display:flex;justify-content:flex-end;align-items:center;}
+.util-bar a{color:#fff;text-decoration:none;font-weight:700;font-size:0.82rem;letter-spacing:-0.01em;display:inline-flex;align-items:center;gap:6px;padding:3px 14px;border-radius:5px;transition:background .18s;}
+.util-bar a:hover{background:rgba(255,255,255,0.16);}
+.util-bar a svg{width:12px;height:12px;color:#ff9d4d;transition:color .18s,transform .18s;}
+.util-bar a:hover svg{color:#fff;transform:translate(1px,-1px);}
+.util-bar .util-sep{width:1px;height:13px;background:rgba(255,255,255,0.4);flex-shrink:0;}
+.util-bar .right-links{display:flex;gap:0;align-items:center;}
 
 .site-header{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:0;position:sticky;top:0;z-index:100;transition:box-shadow .3s;}
 .site-header.scrolled{box-shadow:0 2px 24px rgba(0,30,60,0.08);}
@@ -335,8 +336,11 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 <body>
 
 <div class="util-bar"><div class="wrap">
-  <a class="univ-link" href="https://www.kangwon.ac.kr" target="_blank">🏛 강원대학교</a>
-  <div class="right-links"><a href="https://environ.kangwon.ac.kr/environ/index.do" target="_blank">환경공학전공</a></div>
+  <div class="right-links">
+    <a href="https://www.kangwon.ac.kr" target="_blank">강원대학교<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    <span class="util-sep"></span>
+    <a href="https://environ.kangwon.ac.kr/environ/index.do" target="_blank">환경공학전공<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  </div>
 </div></div>
 
 <header class="site-header"><div class="wrap">
@@ -485,7 +489,7 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
           <div class="focus-ic"><svg viewBox="0 0 48 48" fill="none"><circle cx="20" cy="20" r="13" fill="currentColor" fill-opacity="0.12"/><circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="2.6"/><line x1="29.7" y1="29.7" x2="40" y2="40" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><circle cx="16" cy="17" r="1.7" fill="currentColor"/><circle cx="23.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="19" cy="23.5" r="2" fill="currentColor"/><circle cx="25" cy="22" r="1.3" fill="currentColor"/></svg></div>
           <h3>관측과 성분 분석</h3>
           <div class="focus-en">Observation &amp; Analysis</div>
-          <p>질량분석기 기반 극미량 유기화합물 분석법을 개발하고, 미세먼지 속 유기질소성분을 정량합니다.</p>
+          <p>GC-MS/MS 기반 극미량 유기화합물 분석법을 개발하고, 미세먼지 속 유기질소성분을 정량합니다.</p>
           <span class="focus-link">자세히 보기 →</span>
         </article>
         <article class="focus-card" onclick="showPage('research-source')">
