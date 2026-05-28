@@ -23,11 +23,14 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 .site-header{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:0;position:sticky;top:0;z-index:100;transition:box-shadow .3s;}
 .site-header.scrolled{box-shadow:0 2px 24px rgba(0,30,60,0.08);}
 .site-header .wrap{max-width:1260px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:90px;}
-.header-left{display:flex;align-items:center;gap:18px;text-decoration:none;cursor:pointer;}
-.header-left img{height:52px;width:auto;}
+.header-left{display:flex;align-items:center;gap:15px;text-decoration:none;cursor:pointer;}
+.logo-tile{height:56px;width:56px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #e4eaf1;border-radius:12px;box-shadow:0 2px 10px rgba(0,40,90,0.07);padding:7px;flex-shrink:0;transition:box-shadow .25s,transform .25s;}
+.header-left:hover .logo-tile{box-shadow:0 4px 16px rgba(0,40,90,0.13);transform:translateY(-1px);}
+.logo-tile img{height:100%;width:100%;object-fit:contain;}
+.header-divider{width:1px;height:38px;background:linear-gradient(180deg,transparent,rgba(0,45,95,0.16),transparent);flex-shrink:0;}
 .header-text{display:flex;flex-direction:column;line-height:1.25;}
-.header-text .en-name{font-family:'Arial',sans-serif;font-weight:500;font-size:1.2rem;color:#3d6e8e;letter-spacing:0.03em;}
-.header-text .ko-name{font-family:'Nanum Gothic',sans-serif;font-weight:800;font-size:1.1rem;color:#2c4a5e;margin-top:2px;}
+.header-text .ko-name{font-family:'Nanum Gothic',sans-serif;font-weight:800;font-size:1.2rem;color:#13344c;letter-spacing:-0.01em;}
+.header-text .en-name{font-family:'Raleway',sans-serif;font-weight:600;font-size:0.63rem;color:#5f7e95;letter-spacing:0.14em;text-transform:uppercase;margin-top:4px;}
 .main-nav{display:flex;gap:0;align-items:center;}
 .nav-item{position:relative;}
 .nav-item>a{display:flex;align-items:center;height:90px;padding:0 26px;color:#333;font-size:0.95rem;font-weight:700;text-decoration:none;transition:color .2s;}
@@ -211,7 +214,92 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
   .home-hero h1{font-size:1.9rem;}
   .home-hero{min-height:450px;}
   .home-boxes{grid-template-columns:1fr;}
-  .header-left img{height:40px;}
+  .logo-tile{height:46px;width:46px;border-radius:10px;}
+  .header-divider{height:32px;}
+  .header-text .ko-name{font-size:1.05rem;}
+}
+/* ===================== PREMIUM UPGRADE ===================== */
+:root{
+  --navy:#0a2a47;--navy2:#10406a;--blue:#2a7abf;--blue-d:#1a5a93;
+  --line:#e7edf4;--ink:#243341;--muted:#6b7c8a;
+}
+
+/* Logo: circular seal, no box */
+.logo-tile{background:none;border:none;box-shadow:none;border-radius:50%;padding:0;}
+.logo-tile img{filter:drop-shadow(0 2px 5px rgba(0,40,90,0.16));}
+.header-left:hover .logo-tile{box-shadow:none;}
+
+/* Research Focus section */
+.section-eyebrow{font-family:'Raleway',sans-serif;text-transform:uppercase;letter-spacing:0.2em;font-size:0.72rem;font-weight:600;color:var(--blue);margin-bottom:10px;}
+.home-focus{background:linear-gradient(180deg,#f7fafd 0%,#edf3fa 100%);border-top:1px solid #eef3f8;border-bottom:1px solid #e6eef6;padding:74px 0;}
+.focus-inner{max-width:1260px;margin:0 auto;padding:0 28px;}
+.section-head{font-size:1.95rem;font-weight:800;color:var(--navy);letter-spacing:-0.015em;margin-bottom:12px;}
+.section-sub{font-size:1rem;color:#52677a;max-width:700px;line-height:1.85;margin-bottom:42px;}
+.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.focus-card{background:#fff;border:1px solid #e6eef6;border-radius:16px;padding:34px 30px;cursor:pointer;position:relative;overflow:hidden;transition:transform .32s cubic-bezier(.2,.7,.3,1),box-shadow .32s,border-color .32s;box-shadow:0 1px 3px rgba(10,40,70,0.05);}
+.focus-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),#5aa6e0);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+.focus-card:hover{transform:translateY(-7px);box-shadow:0 20px 44px rgba(10,40,80,0.14);border-color:#d2e3f2;}
+.focus-card:hover::before{transform:scaleX(1);}
+.focus-ic{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,#eaf3fb,#dceaf7);display:flex;align-items:center;justify-content:center;color:var(--blue-d);margin-bottom:20px;transition:background .32s,color .32s,transform .32s;}
+.focus-card:hover .focus-ic{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;transform:scale(1.05);}
+.focus-ic svg{width:26px;height:26px;}
+.focus-card h3{font-size:1.12rem;font-weight:800;color:var(--navy);margin-bottom:3px;}
+.focus-en{font-family:'Raleway',sans-serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:#9aabb9;font-weight:600;margin-bottom:14px;}
+.focus-card p{font-size:0.9rem;color:#5b6f80;line-height:1.7;margin-bottom:16px;}
+.focus-link{font-size:0.84rem;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:4px;transition:gap .25s,color .25s;}
+.focus-card:hover .focus-link{gap:9px;color:var(--navy);}
+
+/* Quick-link boxes -> cards with icons */
+.home-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1260px;margin:0 auto;padding:56px 28px;border-bottom:none;background:transparent;}
+.home-box{background:#fff;border:1px solid #e9eef4;border-radius:14px;padding:30px 22px;text-align:center;cursor:pointer;transition:transform .28s,box-shadow .28s,border-color .28s;box-shadow:0 1px 3px rgba(10,40,70,0.05);}
+.home-box::after{display:none;}
+.home-box:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(10,40,80,0.12);border-color:#d2e3f2;background:#fff;}
+.box-ic{width:46px;height:46px;margin:0 auto 14px;border-radius:12px;background:linear-gradient(135deg,#eef5fc,#e0edf9);display:flex;align-items:center;justify-content:center;color:var(--blue-d);transition:background .28s,color .28s,transform .28s;}
+.home-box:hover .box-ic{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;transform:scale(1.07);}
+.box-ic svg{width:23px;height:23px;}
+.home-box .box-title{font-size:0.96rem;font-weight:800;color:var(--navy);letter-spacing:0.01em;text-transform:none;}
+.home-box:hover .box-title{color:var(--navy);}
+.box-sub{font-size:0.76rem;color:#94a4b2;margin-top:3px;font-family:'Raleway',sans-serif;letter-spacing:0.04em;}
+.home-panels{padding-top:8px;}
+.home-panel li{transition:padding-left .2s,color .2s;}
+.home-panel li:hover{padding-left:4px;}
+
+/* Page banners: richer depth */
+.page-banner{background:linear-gradient(120deg,#06243f 0%,#0c3457 45%,#1a5d97 100%);}
+.page-banner::before{content:'';position:absolute;top:-45%;right:-4%;width:480px;height:480px;background:radial-gradient(circle,rgba(96,172,232,0.28),transparent 65%);pointer-events:none;z-index:0;}
+.page-banner .wrap{position:relative;z-index:2;}
+.page-banner h1{letter-spacing:-0.015em;}
+
+/* Section headings: gradient accent rule */
+.research-section h2{border-bottom:none;position:relative;padding-bottom:14px;}
+.research-section h2::before{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:#e9edf2;}
+.research-section h2::after{content:'';position:absolute;left:0;bottom:0;width:54px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--navy),var(--blue));}
+
+/* Member / Alumni cards: lift + accent avatar */
+.member-item,.alumni-item{transition:transform .28s,box-shadow .28s,border-color .28s;}
+.member-item:hover,.alumni-item:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(10,40,80,0.12);border-color:#d2e3f2;}
+.member-item .avatar,.alumni-item .avatar{transition:border-color .28s,box-shadow .28s;}
+.member-item:hover .avatar,.alumni-item:hover .avatar{border-color:var(--blue);box-shadow:0 6px 20px rgba(42,122,191,0.22);}
+
+/* Research figures */
+.research-figure .fig-box{transition:box-shadow .28s,transform .28s;}
+.research-figure .fig-box:hover{box-shadow:0 12px 30px rgba(10,40,80,0.1);transform:translateY(-3px);}
+
+/* Keyword chips */
+.keyword-list span{transition:background .2s,color .2s,border-color .2s;}
+.keyword-list span:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+/* Scholar link refinement */
+.scholar-link{box-shadow:0 1px 3px rgba(10,40,70,0.05);transition:all .25s;}
+
+@media(max-width:1000px){
+  .focus-grid{grid-template-columns:1fr;}
+  .home-boxes{grid-template-columns:repeat(2,1fr);}
+  .section-head{font-size:1.55rem;}
+  .home-focus{padding:54px 0;}
+}
+@media(max-width:600px){
+  .home-boxes{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -224,10 +312,11 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
 
 <header class="site-header"><div class="wrap">
   <div class="header-left" onclick="showPage('home')">
-    <img src="https://knu-airlab.github.io/knu_logo.jpg" alt="KNU"/>
+    <div class="logo-tile"><img src="https://knu-airlab.github.io/logo.png?v=2" alt="강원대학교"/></div>
+    <div class="header-divider"></div>
     <div class="header-text">
-      <div class="en-name">Atmospheric Environment Research Lab</div>
       <div class="ko-name">대기환경연구실</div>
+      <div class="en-name">Atmospheric Environment Research Lab</div>
     </div>
   </div>
   <button class="mobile-toggle" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
@@ -281,11 +370,41 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
       <p class="en-intro">We investigate the chemical composition and organic constituents of atmospheric particulate matter, trace the origins and atmospheric behavior of pollutants, and assess their health risks. Our research further explores the interplay between air pollutants and climate-forcing species, providing a scientific basis for integrated air quality management and climate change mitigation.</p>
     </div>
   </div>
+  <section class="home-focus">
+    <div class="focus-inner">
+      <div class="section-eyebrow">Research Areas</div>
+      <h2 class="section-head">연구 분야</h2>
+      <p class="section-sub">관측과 성분 분석에서 출발해 배출원을 추적하고, 대기질 변화와 건강·기후 영향까지 미세먼지 유기성분 연구의 전 과정을 다룹니다.</p>
+      <div class="focus-grid">
+        <article class="focus-card" onclick="showPage('research-observation')">
+          <div class="focus-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.2L5.2 18.6A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.3-2.4L14 9.2V3"/><path d="M7.6 15h8.8"/></svg></div>
+          <h3>관측과 성분 분석</h3>
+          <div class="focus-en">Observation &amp; Analysis</div>
+          <p>GC-MS/MS 기반 극미량 유기화합물 분석법을 개발하고, 미세먼지 속 유기질소성분을 정량합니다.</p>
+          <span class="focus-link">자세히 보기 →</span>
+        </article>
+        <article class="focus-card" onclick="showPage('research-source')">
+          <div class="focus-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.3"/><circle cx="6" cy="18" r="2.3"/><circle cx="18" cy="12" r="2.3"/><path d="M8.1 7.1 15.7 11M8.1 16.9 15.7 13"/></svg></div>
+          <h3>배출원 추적과 반응</h3>
+          <div class="focus-en">Source &amp; Process</div>
+          <p>수용모델과 박스모델, 챔버실험으로 1차 배출과 2차 생성 기여를 구분하고 생성 경로를 규명합니다.</p>
+          <span class="focus-link">자세히 보기 →</span>
+        </article>
+        <article class="focus-card" onclick="showPage('research-impact')">
+          <div class="focus-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5h9a3.4 3.4 0 0 0 .5-6.78A5 5 0 0 0 7 11.4 3.3 3.3 0 0 0 7 18.5Z"/><path d="M12 3v1.8M5.6 6.1l1.3 1.3M18.4 6.1l-1.3 1.3"/></svg></div>
+          <h3>대기질과 기후 영향</h3>
+          <div class="focus-en">Air Quality &amp; Climate</div>
+          <p>장거리 이동과 건강 위해성을 평가하고, 갈색탄소의 광흡수 특성으로 기후 영향을 분석합니다.</p>
+          <span class="focus-link">자세히 보기 →</span>
+        </article>
+      </div>
+    </div>
+  </section>
   <div class="home-boxes">
-    <div class="home-box" onclick="showPage('notice')"><div class="box-title">Notice</div></div>
-    <div class="home-box" onclick="showPage('research-observation')"><div class="box-title">Research</div></div>
-    <div class="home-box" onclick="showPage('publication')"><div class="box-title">Publication</div></div>
-    <div class="home-box" onclick="showPage('news')"><div class="box-title">News</div></div>
+    <div class="home-box" onclick="showPage('notice')"><div class="box-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 4.5 1.4 5.5 1.4 5.5H4.6S6 13.5 6 9Z"/><path d="M10.4 19a1.7 1.7 0 0 0 3.2 0"/></svg></div><div class="box-title">Notice</div><div class="box-sub">공지사항</div></div>
+    <div class="home-box" onclick="showPage('research-observation')"><div class="box-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.1"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg></div><div class="box-title">Research</div><div class="box-sub">연구 분야</div></div>
+    <div class="home-box" onclick="showPage('publication')"><div class="box-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12.5h5M10 16h5"/></svg></div><div class="box-title">Publication</div><div class="box-sub">논문 목록</div></div>
+    <div class="home-box" onclick="showPage('news')"><div class="box-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h12v13H5.5A1.5 1.5 0 0 1 4 17.5Z"/><path d="M16 8.5h3.5V17a2 2 0 0 1-3.5 1.3"/><path d="M7 9.5h6M7 12.5h6M7 15.5h4"/></svg></div><div class="box-title">News</div><div class="box-sub">소식</div></div>
   </div>
   <div class="home-panels">
     <div class="home-panel"><h2>Notice</h2><ul>
@@ -564,11 +683,11 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
             </div>
             <h4>정수린</h4>
             <div class="member-degree">석사과정<br>M.S. Student</div>
+            <div class="member-email">✉ <a href="mailto:soorin.ss.sd@gmail.com">soorin.ss.sd@gmail.com</a></div>
             <ul class="member-research">
               <li>대기 중 입자상 유기질소성분 측정 및 분석</li>
               <li>챔버실험을 통한 유기질소성분의 거동특성 규명</li>
             </ul>
-            <div class="member-email">✉ <a href="mailto:soorin.ss.sd@gmail.com">soorin.ss.sd@gmail.com</a></div>
           </div>
           <div class="member-item">
             <div class="avatar">
@@ -576,11 +695,11 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
             </div>
             <h4>정원근</h4>
             <div class="member-degree">학·석사통합과정<br>Integrated B.S.–M.S. Student</div>
+            <div class="member-email">✉ <a href="mailto:wjddnjsrms48@naver.com">wjddnjsrms48@naver.com</a></div>
             <ul class="member-research">
               <li>열탈착법을 활용한 휘발성유기화합물 분석방법 연구</li>
               <li>대기 중 휘발성유기화합물에 의한 오존 생성 기여도 규명</li>
             </ul>
-            <div class="member-email">✉ <a href="mailto:wjddnjsrms48@naver.com">wjddnjsrms48@naver.com</a></div>
           </div>
         </div>
       </div>
@@ -591,32 +710,32 @@ body{font-family:'Nanum Gothic',sans-serif;color:#222;line-height:1.75;word-brea
               <img src="https://knu-airlab.github.io/Ko.jpg" alt="고태민"/>
             </div>
             <h4>고태민</h4>
+            <div class="member-email">✉ <a href="mailto:ktm0216@naver.com">ktm0216@naver.com</a></div>
             <ul class="member-research">
               <li>대기 중 가스상 유기질소성분 분석</li>
               <li>실내 공기질 예측 모델링</li>
             </ul>
-            <div class="member-email">✉ <a href="mailto:ktm0216@naver.com">ktm0216@naver.com</a></div>
           </div>
           <div class="member-item">
             <div class="avatar">
               <img src="https://knu-airlab.github.io/Sang_profile.jpg?v=1" alt="정영상"/>
             </div>
             <h4>정영상</h4>
+            <div class="member-email">✉ <a href="mailto:ys021127@gmail.com">ys021127@gmail.com</a></div>
             <ul class="member-research">
               <li>대기 중 가스상 유기성분 분석법 개발</li>
               <li>가스상 및 입자상 유기성분의 거동특성 규명</li>
             </ul>
-            <div class="member-email">✉ <a href="mailto:ys021127@gmail.com">ys021127@gmail.com</a></div>
           </div>
           <div class="member-item">
             <div class="avatar">
               <img src="https://knu-airlab.github.io/Eunjin_profile.jpg?v=1" alt="김은진"/>
             </div>
             <h4>김은진</h4>
+            <div class="member-email">✉ <a href="mailto:jjin20313@kangwon.ac.kr">jjin20313@kangwon.ac.kr</a></div>
             <ul class="member-research">
               <li>연구 주제 작성 예정</li>
             </ul>
-            <div class="member-email">✉ <a href="mailto:jjin20313@kangwon.ac.kr">jjin20313@kangwon.ac.kr</a></div>
           </div>
         </div>
       </div>
